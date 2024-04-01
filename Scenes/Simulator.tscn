@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/VOLE/Simulator.cs" type="Script" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 1 )
+color = Color( 0.827451, 0.827451, 0.827451, 1 )
+
+[node name="InArea" type="TextEdit" parent="."]
+margin_left = 89.0
+margin_top = 12.0
+margin_right = 858.0
+margin_bottom = 139.0
+
+[node name="MemoryGridContainer" type="GridContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 365.0
+margin_top = 179.0
+margin_right = -68.0
+margin_bottom = -137.0
+columns = 17
+
+[node name="CPUPanel" type="GridContainer" parent="."]
+margin_left = 37.0
+margin_top = 176.0
+margin_right = 309.0
+margin_bottom = 498.0
+columns = 2
+
+[node name="ButtonHBox" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+
+[node name="ClearButton" type="Button" parent="."]
+margin_top = 580.0
+margin_right = 101.0
+margin_bottom = 600.0
+text = "Clear Memory"
+
+[node name="LoadButton" type="Button" parent="."]
+margin_left = 105.0
+margin_top = 580.0
+margin_right = 185.0
+margin_bottom = 600.0
+text = "Load Datta"
+
+[node name="RunButton" type="Button" parent="."]
+margin_left = 189.0
+margin_top = 580.0
+margin_right = 225.0
+margin_bottom = 600.0
+text = "Run"
+
+[node name="StepButton" type="Button" parent="."]
+margin_left = 229.0
+margin_top = 580.0
+margin_right = 311.0
+margin_bottom = 600.0
+text = "Single Step"
+
+[node name="HaltButton" type="Button" parent="."]
+margin_left = 315.0
+margin_top = 580.0
+margin_right = 353.0
+margin_bottom = 600.0
+text = "Halt"
+
+[node name="HelpButton" type="Button" parent="."]
+margin_left = 357.0
+margin_top = 580.0
+margin_right = 399.0
+margin_bottom = 600.0
+text = "Help"
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+margin_right = 8.0
+margin_bottom = 8.0
+
+[node name="Label" type="Label" parent="PopupPanel"]
+margin_right = 40.0
+margin_bottom = 14.0

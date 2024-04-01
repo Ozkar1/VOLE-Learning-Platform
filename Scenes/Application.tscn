@@ -1,5 +1,25 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="ImageTexture" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.827451, 0.827451, 0.827451, 1 )
+
+[node name="ProfilePicture" type="TextureRect" parent="."]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 130.0
+margin_bottom = 130.0
+texture = SubResource( 1 )
+
+[node name="Username" type="Label" parent="ProfilePicture"]
+margin_top = -20.0
+margin_right = 40.0
+margin_bottom = -6.0
+text = "Welcome, UserName (Role)"

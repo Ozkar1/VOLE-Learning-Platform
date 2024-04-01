@@ -18,3 +18,4 @@ func _ready():
 
 func _on_LoginBtn_pressed():
 	get_tree().change_scene("res://Scenes/Vole.tscn")
+	
