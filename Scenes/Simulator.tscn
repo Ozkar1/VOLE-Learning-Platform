@@ -28,12 +28,12 @@ margin_left = 365.0
 margin_top = 179.0
 margin_right = -68.0
 margin_bottom = -137.0
-columns = 17
+columns = 16
 
 [node name="CPUPanel" type="GridContainer" parent="."]
-margin_left = 37.0
+margin_left = 38.0
 margin_top = 176.0
-margin_right = 309.0
+margin_right = 310.0
 margin_bottom = 498.0
 columns = 2
 
