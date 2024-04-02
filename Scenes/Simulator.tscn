@@ -15,26 +15,38 @@ anchor_bottom = 1.0
 theme = SubResource( 1 )
 color = Color( 0.827451, 0.827451, 0.827451, 1 )
 
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -49.0
+margin_top = 10.0
+margin_right = 49.0
+margin_bottom = 14.0
+text = "VOLE Simulator"
+align = 1
+
 [node name="InArea" type="TextEdit" parent="."]
-margin_left = 89.0
-margin_top = 12.0
-margin_right = 858.0
-margin_bottom = 139.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -384.5
+margin_top = 30.0
+margin_right = 384.5
+margin_bottom = 180.0
 
 [node name="MemoryGridContainer" type="GridContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 365.0
-margin_top = 179.0
-margin_right = -68.0
-margin_bottom = -137.0
-columns = 16
+margin_left = 367.0
+margin_top = 203.0
+margin_right = -66.0
+margin_bottom = -113.0
+columns = 17
 
 [node name="CPUPanel" type="GridContainer" parent="."]
-margin_left = 38.0
-margin_top = 176.0
-margin_right = 310.0
-margin_bottom = 498.0
+margin_left = 54.0
+margin_top = 218.0
+margin_right = 326.0
+margin_bottom = 540.0
 columns = 2
 
 [node name="ButtonHBox" type="HBoxContainer" parent="."]
@@ -89,5 +101,7 @@ margin_right = 8.0
 margin_bottom = 8.0
 
 [node name="Label" type="Label" parent="PopupPanel"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 4.0
+margin_bottom = 18.0

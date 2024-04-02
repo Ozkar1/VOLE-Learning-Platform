@@ -4,7 +4,7 @@ using System;
 public class Simulator : Control
 {
 	TextEdit inArea;
-	Label[,] mem = new Label[16, 16];
+	Label[,] mem = new Label[17, 17];
 	Label[,] regs = new Label[16, 2];
 	Label[,] spRegs = new Label[2, 2];
 	Button clearb, loadb, runb, stepb, haltb, helpb;
@@ -34,7 +34,9 @@ public class Simulator : Control
 		
 		// Create memory labels and add them to the MemoryGridContainer
 		GridContainer memoryGridContainer = GetNode<GridContainer>("MemoryGridContainer");
-		for (int i = 0; i < 16; i++)
+		//TODO
+		
+		/*for (int i = 0; i < 17; i++)
 		{
 			for (int j = 0; j < 16; j++)
 			{
@@ -44,7 +46,34 @@ public class Simulator : Control
 				memoryGridContainer.AddChild(label);
 				//GD.Print("Label added at position: ", i, ",", j);
 			}
+		}*/
+
+		//Forsøg 2
+		for (int i = 0; i < 17; i++)
+		{
+			mem[i, 0] = new Label();
+			mem[i, 0].Text = ToHex(i - 1, 1);
+			mem[i, 0].Align = Label.AlignEnum.Center;
+			memoryGridContainer.AddChild(mem[i, 0]); // Add the label to the scene tree
+			
+			for (int j = 1; j < 17; j++)
+			{
+				mem[i, j] = new Label();
+				if (i == 0)
+				{
+					mem[i, j].Text = " " + ToHex(j - 1, 1);
+				}
+				else
+				{
+					mem[i, j].Text = "00";
+				}
+				
+				mem[i, j].Align = Label.AlignEnum.Center; // Assuming you want all text centered
+				memoryGridContainer.AddChild(mem[i, j]); // Add the label to the scene tree
+			}
 		}
+		// special case
+		mem[0,0].Text = "";
 	
 		// Get references to labels in the CPU panel
 		GridContainer cpuPanel = GetNode<GridContainer>("CPUPanel");
@@ -108,17 +137,41 @@ for (int i = 0; i < 16; i++)
 	private void OnHaltButtonPressed() => running = false;
 	private void OnHelpButtonPressed() => ShowHelp();
 
+
+	private string ToHex(int val, int width)
+	{
+		// Return a string of at least width chars holding
+		// the hex representation of the non-negative val.
+		
+		string hex = val.ToString("X").ToUpper(); // Convert to hex and make uppercase
+		return hex.PadLeft(width, '0'); // Pad with '0' to ensure minimum width
+	}
 	
 	// Her stopper UI implementation
 	private void ClearMemory()
 {
-	for (int i = 1; i < 16; i++)
+	for (int i = 1; i < 17; i++)
 	{
-		for (int j = 1; j < 16; j++)
+		for (int j = 1; j < 17; j++)
 		{
 			mem[i, j].Text = "00";
 		}
 	}
+	/*for (int i = 0; i < 17; i++)
+	{ 
+		//mem[i,0].Text =(i-1).ToString();
+		mem[i,0].Text = "skrrt";
+		
+		for (int j = 1; j < 17; j++)
+		{
+			if(i == 0){
+				mem[i, j].Text = " ";
+			} else if(j > 0) {
+				mem[i, j].Text = "00";
+				}
+			
+		}
+	}*/
 }
 private void LoadData()
 {
@@ -128,8 +181,8 @@ private void LoadData()
 		regs[i, 1].Text = "00";
 	spRegs[0, 1].Text = "00";
 	spRegs[1, 1].Text = "0000";
-	for (int i = 1; i < 16; i++)
-		for (int j = 1; j < 16; j++)
+	for (int i = 1; i < 17; i++)
+		for (int j = 1; j < 17; j++)
 			mem[i, j].Text = "00";
 
 	string input = inArea.Text;
