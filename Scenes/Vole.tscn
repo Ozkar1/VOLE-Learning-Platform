@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=1]
 
 [sub_resource type="Theme" id=1]
 
@@ -7,11 +9,12 @@
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.94902, 0.984314, 0.952941, 1 )
+color = Color( 1, 1, 0.8, 1 )
 
 [node name="DataInputLabel" type="Label" parent="ColorRect"]
 margin_right = 1024.0
@@ -51,240 +54,240 @@ theme = SubResource( 1 )
 columns = 2
 
 [node name="R0" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_right = 38.0
-margin_bottom = 14.0
+margin_right = 45.0
+margin_bottom = 23.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "R0 00"
 
 [node name="R0x" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_right = 58.0
-margin_bottom = 14.0
+margin_left = 49.0
+margin_right = 67.0
+margin_bottom = 23.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="R1" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 18.0
-margin_right = 38.0
-margin_bottom = 32.0
+margin_top = 27.0
+margin_right = 45.0
+margin_bottom = 50.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "R1 00"
 
 [node name="R1x" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 18.0
-margin_right = 58.0
-margin_bottom = 32.0
+margin_left = 49.0
+margin_top = 27.0
+margin_right = 67.0
+margin_bottom = 50.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="R2" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 36.0
-margin_right = 38.0
-margin_bottom = 50.0
+margin_top = 54.0
+margin_right = 45.0
+margin_bottom = 77.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "R2 00"
 
 [node name="Label" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 36.0
-margin_right = 58.0
-margin_bottom = 50.0
+margin_left = 49.0
+margin_top = 54.0
+margin_right = 67.0
+margin_bottom = 77.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="R3" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 54.0
-margin_right = 38.0
-margin_bottom = 68.0
+margin_top = 81.0
+margin_right = 45.0
+margin_bottom = 104.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "R3 00"
 
 [node name="Label2" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 54.0
-margin_right = 58.0
-margin_bottom = 68.0
+margin_left = 49.0
+margin_top = 81.0
+margin_right = 67.0
+margin_bottom = 104.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="R4" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 72.0
-margin_right = 38.0
-margin_bottom = 86.0
+margin_top = 108.0
+margin_right = 45.0
+margin_bottom = 131.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "R4 00"
 
 [node name="Label3" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 72.0
-margin_right = 58.0
-margin_bottom = 86.0
+margin_left = 49.0
+margin_top = 108.0
+margin_right = 67.0
+margin_bottom = 131.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="R5" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 90.0
-margin_right = 38.0
-margin_bottom = 104.0
+margin_top = 135.0
+margin_right = 45.0
+margin_bottom = 158.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "R5 00"
 
 [node name="Label4" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 90.0
-margin_right = 58.0
-margin_bottom = 104.0
+margin_left = 49.0
+margin_top = 135.0
+margin_right = 67.0
+margin_bottom = 158.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="R6" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 108.0
-margin_right = 38.0
-margin_bottom = 122.0
+margin_top = 162.0
+margin_right = 45.0
+margin_bottom = 185.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "R6 00"
 
 [node name="R0x2" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 108.0
-margin_right = 58.0
-margin_bottom = 122.0
+margin_left = 49.0
+margin_top = 162.0
+margin_right = 67.0
+margin_bottom = 185.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="R7" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 126.0
-margin_right = 38.0
-margin_bottom = 140.0
+margin_top = 189.0
+margin_right = 45.0
+margin_bottom = 212.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "R7 00"
 
 [node name="Label7" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 126.0
-margin_right = 58.0
-margin_bottom = 140.0
+margin_left = 49.0
+margin_top = 189.0
+margin_right = 67.0
+margin_bottom = 212.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="R8" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 144.0
-margin_right = 38.0
-margin_bottom = 158.0
+margin_top = 216.0
+margin_right = 45.0
+margin_bottom = 239.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "R8 00"
 
 [node name="Label5" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 144.0
-margin_right = 58.0
-margin_bottom = 158.0
+margin_left = 49.0
+margin_top = 216.0
+margin_right = 67.0
+margin_bottom = 239.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="R9" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 162.0
-margin_right = 38.0
-margin_bottom = 176.0
+margin_top = 243.0
+margin_right = 45.0
+margin_bottom = 266.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "R9 00"
 
 [node name="Label6" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 162.0
-margin_right = 58.0
-margin_bottom = 176.0
+margin_left = 49.0
+margin_top = 243.0
+margin_right = 67.0
+margin_bottom = 266.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="RA" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 180.0
-margin_right = 38.0
-margin_bottom = 194.0
+margin_top = 270.0
+margin_right = 45.0
+margin_bottom = 293.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "RA 00"
 
 [node name="Label8" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 180.0
-margin_right = 58.0
-margin_bottom = 194.0
+margin_left = 49.0
+margin_top = 270.0
+margin_right = 67.0
+margin_bottom = 293.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="RB" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 198.0
-margin_right = 38.0
-margin_bottom = 212.0
+margin_top = 297.0
+margin_right = 45.0
+margin_bottom = 320.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "RB 00"
 
 [node name="Label9" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 198.0
-margin_right = 58.0
-margin_bottom = 212.0
+margin_left = 49.0
+margin_top = 297.0
+margin_right = 67.0
+margin_bottom = 320.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="RC" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 216.0
-margin_right = 38.0
-margin_bottom = 230.0
+margin_top = 324.0
+margin_right = 45.0
+margin_bottom = 347.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "RC 00"
 
 [node name="Label10" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 216.0
-margin_right = 58.0
-margin_bottom = 230.0
+margin_left = 49.0
+margin_top = 324.0
+margin_right = 67.0
+margin_bottom = 347.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="RD" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 234.0
-margin_right = 38.0
-margin_bottom = 248.0
+margin_top = 351.0
+margin_right = 45.0
+margin_bottom = 374.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "RD 00"
 
 [node name="Label11" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 234.0
-margin_right = 58.0
-margin_bottom = 248.0
+margin_left = 49.0
+margin_top = 351.0
+margin_right = 67.0
+margin_bottom = 374.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="RE" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 252.0
-margin_right = 38.0
-margin_bottom = 266.0
+margin_top = 378.0
+margin_right = 45.0
+margin_bottom = 401.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "RE 00"
 
 [node name="Label12" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 252.0
-margin_right = 58.0
-margin_bottom = 266.0
+margin_left = 49.0
+margin_top = 378.0
+margin_right = 67.0
+margin_bottom = 401.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="RF" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_top = 270.0
-margin_right = 38.0
-margin_bottom = 284.0
+margin_top = 405.0
+margin_right = 45.0
+margin_bottom = 428.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "RF 00"
 
 [node name="Label13" type="Label" parent="ColorRect/CPUGridContainer"]
-margin_left = 42.0
-margin_top = 270.0
-margin_right = 58.0
-margin_bottom = 284.0
+margin_left = 49.0
+margin_top = 405.0
+margin_right = 67.0
+margin_bottom = 428.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 

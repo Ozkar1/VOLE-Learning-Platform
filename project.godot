@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="VOLE Learning Platform"
-run/main_scene="res://Scenes/Vole.tscn"
+run/main_scene="res://Scenes/Login.tscn"
 config/icon="res://icon.png"
 
 [autoload]
