@@ -292,10 +292,10 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "00"
 
 [node name="TextEdit" type="TextEdit" parent="ColorRect"]
-margin_left = 24.0
-margin_top = 20.0
+margin_left = 160.0
+margin_top = 27.0
 margin_right = 1000.0
-margin_bottom = 160.0
+margin_bottom = 167.0
 
 [node name="ClearMemoryBtn" type="Button" parent="ColorRect"]
 margin_left = 304.0

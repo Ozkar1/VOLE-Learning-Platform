@@ -23,3 +23,6 @@ func _on_VoleBtn_pressed():
 
 func _on_ClassroomBtn_pressed():
 	get_tree().change_scene("res://Scenes/Classroom.tscn")
+
+func _on_RegisterBtn_pressed():
+	get_tree().change_scene("res://Scenes/Register.tscn")
