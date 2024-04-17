@@ -31,6 +31,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		var token = response.token
 		print("Login successful, token:", token)
 		Storage.save_token(token)  # Save the token securel
+		print(Storage.load_token())
 		get_tree().change_scene("res://Scenes/MainMenu.tscn")
 		# Store token securely and use for subsequent requests
 	else:
