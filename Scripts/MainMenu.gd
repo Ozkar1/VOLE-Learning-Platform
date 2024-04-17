@@ -15,8 +15,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_LoginBtn_pressed():
-	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+
 
 func _on_VoleBtn_pressed():
 	get_tree().change_scene("res://Scenes/Simulator.tscn")
@@ -26,3 +25,11 @@ func _on_ClassroomBtn_pressed():
 
 func _on_RegisterBtn_pressed():
 	get_tree().change_scene("res://Scenes/Register.tscn")
+
+
+func _on_LoginButton_pressed():
+	pass # Replace with function body.
+
+
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+	pass # Replace with function body.
