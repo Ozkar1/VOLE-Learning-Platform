@@ -106,15 +106,6 @@ margin_top = 196.0
 margin_right = 278.0
 margin_bottom = 229.0
 
-[node name="Label3" type="Label" parent="ColorRect/Panel"]
-margin_left = 50.0
-margin_top = 247.0
-margin_right = 250.0
-margin_bottom = 270.0
-mouse_default_cursor_shape = 2
-text = "Forgot password"
-align = 1
-
 [node name="LoginBtn" type="Button" parent="ColorRect/Panel"]
 margin_left = 40.0
 margin_top = 287.0
