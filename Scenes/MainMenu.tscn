@@ -18,12 +18,14 @@ __meta__ = {
 "_edit_vertical_guides_": [ 400.0, 950.0 ]
 }
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 0.8, 1 )
 
-[node name="AppTitle" type="Label" parent="ColorRect"]
+[node name="WelcomeText" type="Label" parent="ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -126,5 +128,6 @@ custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 text = "[Here goes text about the assignments for the signed in user]
 [What to display if not part of a classroom/no assignements or no internet connection]"
 
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="ColorRect/ClassroomBtn" to="." method="_on_ClassroomBtn_pressed"]
 [connection signal="pressed" from="ColorRect/VoleBtn" to="." method="_on_VoleBtn_pressed"]
