@@ -30,6 +30,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	if response_code == 200:
 		var token = response.token
 		print("Login successful, token:", token)
+		Storage.save_token(token)  # Save the token securel
 		get_tree().change_scene("res://Scenes/MainMenu.tscn")
 		# Store token securely and use for subsequent requests
 	else:
@@ -43,7 +44,3 @@ func _on_ClassroomBtn_pressed():
 
 func _on_RegisterBtn_pressed():
 	get_tree().change_scene("res://Scenes/Register.tscn")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
