@@ -167,7 +167,16 @@ margin_left = 20.0
 margin_top = 302.0
 margin_right = 220.0
 margin_bottom = 325.0
+rect_pivot_offset = Vector2( -278, -45 )
 text = "Password"
+
+
+[node name="PasswordInput" type="LineEdit" parent="ColorRect/Panel"]
+margin_left = 20.0
+margin_top = 327.0
+margin_right = 280.0
+margin_bottom = 360.0
+rect_pivot_offset = Vector2( -278, -70 )
 
 [node name="LastNameLabel" type="Label" parent="ColorRect/Panel"]
 margin_left = 20.0
@@ -187,6 +196,21 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Please pick your occupation"
+
+[node name="PasswordConfirmLabel" type="Label" parent="ColorRect/Panel"]
+margin_left = -265.0
+margin_top = 303.0
+margin_right = -65.0
+margin_bottom = 326.0
+rect_pivot_offset = Vector2( -278, -45 )
+text = "Re-enter Password"
+
+[node name="PasswordConfirmInput" type="LineEdit" parent="ColorRect/Panel"]
+margin_left = -265.0
+margin_top = 328.0
+margin_right = -5.0
+margin_bottom = 361.0
+rect_pivot_offset = Vector2( -278, -70 )
 
 [node name="HaveAnAccBtn" type="Button" parent="ColorRect"]
 margin_left = 366.0
@@ -223,7 +247,15 @@ custom_fonts/font = SubResource( 2 )
 text = "VOLE SIMULATOR"
 align = 1
 
+
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+
+[node name="ErrorLabel" type="Label" parent="ColorRect"]
+margin_left = 653.0
+margin_top = 318.0
+margin_right = 853.0
+margin_bottom = 341.0
+
 [connection signal="pressed" from="ColorRect/Panel/SignUpBtn" to="." method="_on_SignUpBtn_pressed"]
 [connection signal="item_selected" from="ColorRect/Panel/OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="pressed" from="ColorRect/HaveAnAccBtn" to="." method="_on_HaveAnAccBtn_pressed"]
