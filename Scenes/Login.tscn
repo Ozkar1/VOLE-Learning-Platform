@@ -44,6 +44,8 @@ __meta__ = {
 "_edit_vertical_guides_": [ 350.0, 650.0, 500.0 ]
 }
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
