@@ -5,12 +5,12 @@ var hasUppercase = false
 var hasLowercase = false
 var hasSpecialChar = false
 var errorMessage = ""
+var passwordErrorMessage = ""
 
 ## Ready signal handler
 onready var drop_down_menu = $ColorRect/Panel/OptionButton
-onready var passwordInput = $ColorRect/Panel/PasswordInput
 onready var errorLabel = $ColorRect/ErrorLabel
-
+onready var sign_up_btn = $ColorRect/Panel/SignUpBtn
 
 # References to the input fields
 onready var username_input = $ColorRect/Panel/UsernameInput
@@ -20,6 +20,7 @@ onready var last_name_input = $ColorRect/Panel/LastNameInput
 onready var password_input = $ColorRect/Panel/PasswordInput
 onready var profile_picture_input = "http://example.com/profile.jpg"
 onready var role_dropdown = $ColorRect/Panel/OptionButton
+onready var password_confirm_input = $ColorRect/Panel/PasswordConfirmInput
 
 # Reference to the HTTPRequest node
 onready var http_request = $HTTPRequest
@@ -27,20 +28,19 @@ onready var http_request = $HTTPRequest
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_items()
-	if passwordInput != null:
-		passwordInput.connect("text_changed", self, "on_password_text_changed")
-		errorLabel.visible = false
+	errorLabel.visible = false
+	password_input.secret = true
+	password_confirm_input.secret = true
 
 ## Function to add items to the dropdown menu
 func add_items():
 	drop_down_menu.add_item("Student")
 	drop_down_menu.add_item("Teacher")
+	
 
 func _on_OptionButton_item_selected(index):
 	var current_selected = index
-	
-	#if current_selected == 0:
-	#	student selected
+
 	
 func register_user():
 	var user_data = {
@@ -68,39 +68,56 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	else:
 		print("Failed to register:", response)
 
-
-## Function called when the Sign Up button is pressed
-func _on_SignUpBtn_pressed():
-
-	register_user()
-
-	# Validate password before scene change
-	on_password_text_changed(passwordInput.text)
-	if errorMessage == "" and hasUppercase and hasLowercase and hasSpecialChar:
-		get_tree().change_scene("res://Scenes/MainMenu.tscn")
-	else:
-		errorLabel.text = errorMessage
-		errorLabel.visible = true
-
-## Function called when the Have An Account button is pressed
-
 func _on_HaveAnAccBtn_pressed():
 	get_tree().change_scene("res://Scenes/Login.tscn")
 
-## Function for password text change validation
-func on_password_text_changed(new_text):
+func validate_input():
 	errorMessage = ""
+	passwordErrorMessage = ""
+	 # Validate username
+	if username_input.text.length() < 3 or username_input.text.length() >= 20:
+		errorMessage += "- Username must be between \n  3 and 20 characters.\n"
 	
-	var regex = RegEx.new()
-	regex.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*]).{8,}$")
-	var result = regex.search(new_text)
-	if not result:
-		errorMessage = " Password must include atleast \n 8 character \n One uppercase \n One lowercase \n One special sign"
+	var emailRegex = RegEx.new()
+	emailRegex.compile("^[\\w\\-\\.]+@([\\w\\-]+\\.)+[\\w\\-]{2,4}$")
+	var emailRegexResult = emailRegex.search(email_input.text)
+	if not emailRegexResult:
+		errorMessage += '- Please input a valid email\n'
 	
-	# Display error message (if any) or highlight the LineEdit
+	# Validate first name
+	if first_name_input.text.length() == 0 :
+		errorMessage += "- Please fill out your first name.\n"
+	
+	# Validate last name
+	if last_name_input.text.length() == 0:
+		errorMessage += "- Please fill out your last name.\n"
+	
+	# Validate password confirmation
+	if password_input.text != password_confirm_input.text:
+		errorMessage += "- Passwords do not match.\n"
+	
+	var passwordRegex = RegEx.new()
+	passwordRegex.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*]).{8,}$")
+	var passwordRegexresult = passwordRegex.search(password_input.text) 
+	if not passwordRegexresult:
+		errorMessage += "\n Password must include atleast: \n - 8 character \n - One uppercase \n - One lowercase \n - One special sign"
+	
+	# Display error message (if any)
 	if errorMessage != "":
-		# Show a popup or label displaying the errorMessage
 		errorLabel.text = errorMessage
 		errorLabel.visible = true
+		return false
 	else:
 		errorLabel.visible = false
+		return true
+
+
+## Function called when the Sign Up button is pressed
+func _on_SignUpBtn_pressed():
+	 # Validate input fields before registration
+	if not validate_input():
+		return
+	
+	# If all input is valid, proceed with registration
+	register_user()
+	get_tree().change_scene("res://Scenes/Login.tscn")
