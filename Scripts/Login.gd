@@ -1,14 +1,19 @@
 extends Node
 
+var usernameErrorMsg = ""
+var passwordErrorMsg = ""
 
 onready var username_input = $ColorRect/Panel/UsernameInput
 onready var password_input = $ColorRect/Panel/PasswordInput
 onready var login_button = $ColorRect/Panel/LoginButton
 onready var http_request = $HTTPRequest
-
+onready var usernameErrorLabel = $ColorRect/UsernameErrorLabel
+onready var passwordErrorLabel = $ColorRect/PasswordErrorLabel
 
 func _ready():
 	pass
+	usernameErrorLabel.visible = false
+	passwordErrorLabel.visible = false
 
 
 func _on_LoginButton_pressed():
@@ -37,6 +42,13 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	else:
 		print("Login failed:", response.message if 'message' in response else 'Unknown error')
 		
+
+func validate_input():
+	if username_input.text.length() == 0:
+		usernameErrorMsg = "Please fill out username"
+	if password_input.text.length() == 0:
+		passwordErrorMsg = "Please fill out password"
+
 func _on_VoleBtn_pressed():
 	get_tree().change_scene("res://Scenes/Simulator.tscn")
 
@@ -44,4 +56,5 @@ func _on_ClassroomBtn_pressed():
 	get_tree().change_scene("res://Scenes/Classroom.tscn")
 
 func _on_RegisterBtn_pressed():
+	
 	get_tree().change_scene("res://Scenes/Register.tscn")

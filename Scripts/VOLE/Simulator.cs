@@ -7,7 +7,7 @@ public class Simulator : Control
 	Label[,] mem = new Label[17, 17];
 	Label[,] regs = new Label[16, 2];
 	Label[,] spRegs = new Label[2, 2];
-	Button clearb, loadb, runb, stepb, haltb, helpb;
+	Button clearb, loadb, runb, stepb, haltb, helpb, menub, submitb;
 	bool running;
 
 	public override void _Ready()
@@ -22,6 +22,8 @@ public class Simulator : Control
 		stepb = GetNode<Button>("StepButton");
 		haltb = GetNode<Button>("HaltButton");
 		helpb = GetNode<Button>("HelpButton");
+		menub = GetNode<Button>("MenuButton");
+		submitb = GetNode<Button>("SubmitButton");
 		
 		// Connect signals to button clicks
 		clearb.Connect("pressed", this, nameof(OnClearButtonPressed));
@@ -30,6 +32,8 @@ public class Simulator : Control
 		stepb.Connect("pressed", this, nameof(OnStepButtonPressed));
 		haltb.Connect("pressed", this, nameof(OnHaltButtonPressed));
 		helpb.Connect("pressed", this, nameof(OnHelpButtonPressed));
+		menub.Connect("pressed", this, nameof(OnMenuButtonPressed));
+		//submitb.Connect("pressed", this, nameof(OnSubmitButtonPressed));
 		
 		
 		// Create memory labels and add them to the MemoryGridContainer
@@ -136,6 +140,7 @@ for (int i = 0; i < 16; i++)
 	private void OnStepButtonPressed() => ExecuteSingleStep();
 	private void OnHaltButtonPressed() => running = false;
 	private void OnHelpButtonPressed() => ShowHelp();
+	private void OnMenuButtonPressed() => goToMenu();
 
 
 	private string ToHex(int val, int width)
@@ -249,6 +254,11 @@ private void LoadData()
 		GD.Print("Error loading data: ", ex.Message);
 		
 	}
+}
+
+private void goToMenu()
+{
+	 GetTree().ChangeScene("res://Scenes/MainMenu.tscn");
 }
 
 

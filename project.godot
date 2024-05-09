@@ -90,7 +90,7 @@ Storage="*res://Scripts/Storage.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/github-integration/plugin.cfg", "res://addons/jwt/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/jwt/plugin.cfg" )
 
 [gui]
 
