@@ -13,8 +13,9 @@ func _ready():
 func fetch_teacher_classroom_info():
 	var token = Storage.load_token()  
 	var headers = [
+		"Content-Type: application/json",
 		"Authorization: Bearer " + token
-	]
+		]
 	http_request.request(API_URL, headers, true, HTTPClient.METHOD_GET, "")
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):

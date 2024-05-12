@@ -18,7 +18,10 @@ func joinClassroom():
 	}
 	var url = "http://localhost:3000/api/classrooms/enroll"
 	var token = Storage.load_token()  
-	var headers = ["Authorization: Bearer " + token]
+	var headers = [
+		"Content-Type: application/json",
+		"Authorization: Bearer " + token
+		]
 	var json_data = to_json(request_data)
 	http_request.request(url, headers, true, HTTPClient.METHOD_POST, json_data)
 

@@ -16,7 +16,7 @@ func createClassroom():
 	var token = Storage.load_token()  
 	var request_data = {
 		"ClassroomName": classroomName.text,
-		"ClassroomDescription": classroomDescription.text
+		"Description": classroomDescription.text
 	}
 	var url = "http://localhost:3000/api/classrooms/create"
 	var headers = [
