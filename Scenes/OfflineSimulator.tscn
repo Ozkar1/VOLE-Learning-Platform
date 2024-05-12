@@ -1,19 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/VOLE/Simulator.cs" type="Script" id=1]
-[ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=2]
-[ext_resource path="res://Scripts/SimulatorHelper.gd" type="Script" id=3]
+[ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/VOLE/Simulator.cs" type="Script" id=2]
 
 [sub_resource type="Theme" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_vertical_guides_": [ 1433.0, 1340.0 ]
-}
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -138,31 +134,6 @@ margin_right = -327.0
 margin_bottom = 232.0
 text = "Help"
 
-[node name="MenuButton" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 333.0
-margin_top = 182.0
-margin_right = 483.0
-margin_bottom = 232.0
-rect_pivot_offset = Vector2( 117, 9 )
-text = "Back To Menu"
-script = ExtResource( 3 )
-
-[node name="SubmitButton" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 315.0
-margin_top = -147.0
-margin_right = 483.0
-margin_bottom = -97.0
-rect_pivot_offset = Vector2( 117, 9 )
-text = "Submit Assignment"
-
 [node name="PopupPanel" type="PopupPanel" parent="."]
 margin_right = 8.0
 margin_bottom = 8.0
@@ -172,5 +143,3 @@ margin_left = 4.0
 margin_top = 4.0
 margin_right = 4.0
 margin_bottom = 27.0
-
-[connection signal="pressed" from="MenuButton" to="MenuButton" method="_on_MenuButton_pressed"]

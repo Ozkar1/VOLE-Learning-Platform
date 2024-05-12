@@ -9,15 +9,16 @@ onready var login_button = $ColorRect/Panel/LoginButton
 onready var http_request = $HTTPRequest
 onready var usernameErrorLabel = $ColorRect/UsernameErrorLabel
 onready var passwordErrorLabel = $ColorRect/PasswordErrorLabel
+onready var loginErrorLabel = $ColorRect/LoginErrorLabel
 
 func _ready():
 	pass
 	usernameErrorLabel.visible = false
 	passwordErrorLabel.visible = false
+	loginErrorLabel.visible = false
 
 
 func _on_LoginButton_pressed():
-	
 	var username = username_input.text
 	var password = password_input.text
 	print(username,password)
@@ -41,6 +42,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		# Store token securely and use for subsequent requests
 	else:
 		print("Login failed:", response.message if 'message' in response else 'Unknown error')
+		loginErrorLabel.text =  "Incorrect username and/or password"
+		loginErrorLabel.visible = true
 		
 
 func validate_input():
@@ -56,5 +59,7 @@ func _on_ClassroomBtn_pressed():
 	get_tree().change_scene("res://Scenes/Classroom.tscn")
 
 func _on_RegisterBtn_pressed():
-	
 	get_tree().change_scene("res://Scenes/Register.tscn")
+
+func _on_OfflineBtn_pressed():
+	get_tree().change_scene("res://Scenes/OfflineSimulator.tscn")

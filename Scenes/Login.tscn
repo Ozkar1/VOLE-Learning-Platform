@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Login.gd" type="Script" id=1]
 [ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=2]
@@ -38,6 +38,9 @@ bg_color = Color( 1, 1, 0.8, 1 )
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 4 )
 
 [node name="Menu" type="Control"]
@@ -115,7 +118,7 @@ margin_right = 278.0
 margin_bottom = 229.0
 secret = true
 
-[node name="LoginBtn" type="Button" parent="ColorRect/Panel"]
+[node name="LoginButton" type="Button" parent="ColorRect/Panel"]
 margin_left = 20.0
 margin_top = 287.0
 margin_right = 280.0
@@ -140,6 +143,23 @@ custom_styles/hover = SubResource( 5 )
 custom_styles/pressed = SubResource( 6 )
 custom_styles/normal = SubResource( 4 )
 text = "First time here? Create an account"
+
+[node name="OfflineBtn" type="Button" parent="ColorRect"]
+margin_left = 378.0
+margin_top = 520.0
+margin_right = 623.0
+margin_bottom = 548.0
+mouse_default_cursor_shape = 2
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.203922, 0.203922, 0.203922, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+text = "Continue offline"
 
 [node name="AppTitle" type="Label" parent="ColorRect"]
 anchor_left = 0.5
@@ -183,5 +203,17 @@ margin_bottom = 11.6
 custom_colors/font_color = Color( 0.6, 0.00784314, 0.00784314, 1 )
 custom_fonts/font = SubResource( 8 )
 
+[node name="LoginErrorLabel" type="Label" parent="ColorRect"]
+margin_left = 214.0
+margin_top = 342.0
+margin_right = 787.0
+margin_bottom = 382.0
+rect_pivot_offset = Vector2( -219, 8 )
+custom_colors/font_color = Color( 0.537255, 0, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+align = 1
+
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="pressed" from="ColorRect/Panel/LoginButton" to="." method="_on_LoginButton_pressed"]
 [connection signal="pressed" from="ColorRect/RegisterBtn" to="." method="_on_RegisterBtn_pressed"]
+[connection signal="pressed" from="ColorRect/OfflineBtn" to="." method="_on_OfflineBtn_pressed"]

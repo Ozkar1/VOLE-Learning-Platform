@@ -1,5 +1,7 @@
 extends Control
 
+var user_role = ""
+
 onready var name_label = $ColorRect/WelcomeText
 onready var http_request = $HTTPRequest
 
@@ -19,8 +21,10 @@ func fetch_user_info():
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	if response_code == 200:
 		var response = parse_json(body.get_string_from_utf8())
+		user_role = response.role 
 		print(response)
 		name_label.text = response.FirstName + " " + response.LastName + " ("+ response.role +")"
+		print("Role retrieved:", user_role)
 	else:
 		print("Failed to fetch user data:", response_code)
 
@@ -29,14 +33,11 @@ func _on_VoleBtn_pressed():
 	get_tree().change_scene("res://Scenes/Simulator.tscn")
 
 func _on_ClassroomBtn_pressed():
-	get_tree().change_scene("res://Scenes/Classroom.tscn")
+	if user_role == "teacher":
+		get_tree().change_scene("res://Scenes/Classrooms/ClassroomTeacher.tscn")
+	elif user_role == "student":
+		get_tree().change_scene("res://Scenes/Classrooms/ClassroomStudent.tscn")
 
-func _on_RegisterBtn_pressed():
-	get_tree().change_scene("res://Scenes/Register.tscn")
-
-
-func _on_LoginButton_pressed():
-	pass # Replace with function body.
 
 
 
