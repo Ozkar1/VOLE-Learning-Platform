@@ -3,9 +3,10 @@ extends Node
 
 onready var http_request = $HTTPRequest
 onready var classroomName = $ColorRect/ClassroomName
+onready var Classrooms = $ColorRect/OptionButton
 
 # Constant variables for the API
-const API_URL = "http://localhost:3000/api/classrooms/teacher/:teacherId" 
+const API_URL = "http://localhost:3000/api/classrooms/teacher" 
 
 func _ready():
 	fetch_teacher_classroom_info()

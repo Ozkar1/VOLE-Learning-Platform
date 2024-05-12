@@ -14,7 +14,7 @@ func _on_BackToStudentClassroomBtn_pressed():
 
 func joinClassroom():
 	var request_data = {
-		"JoinCode": classroomCode.text,
+		"joinCode": classroomCode.text,
 	}
 	var url = "http://localhost:3000/api/classrooms/enroll"
 	var token = Storage.load_token()  

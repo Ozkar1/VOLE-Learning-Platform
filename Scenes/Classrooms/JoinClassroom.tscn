@@ -115,5 +115,6 @@ custom_colors/font_color = Color( 0.682353, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 align = 1
 
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="ColorRect/BackToStudentClassroomBtn" to="." method="_on_BackToStudentClassroomBtn_pressed"]
 [connection signal="pressed" from="ColorRect/Panel/JoinClassroomBtn" to="." method="_on_JoinClassroomBtn_pressed"]

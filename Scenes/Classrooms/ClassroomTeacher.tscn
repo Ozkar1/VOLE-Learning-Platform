@@ -135,6 +135,7 @@ margin_bottom = 209.0
 rect_pivot_offset = Vector2( 280, 40 )
 text = "Add new assignment"
 
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="ColorRect/MenuBtn" to="." method="_on_MenuBtn_pressed"]
 [connection signal="pressed" from="ColorRect/MenuBtn" to="ColorRect/MenuBtn" method="_on_MenuBtn_pressed"]
 [connection signal="pressed" from="ColorRect/CreateClassroomBtn" to="." method="_on_CreateClassroomBtn_pressed"]
