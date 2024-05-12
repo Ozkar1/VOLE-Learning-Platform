@@ -5,7 +5,7 @@ onready var classroomName = $ColorRect/Panel/ClassroomNameInput
 onready var classroomDescription = $ColorRect/Panel/ClassroomDescriptionInput
 onready var errorLabel = $ColorRect/ErrorLabel
 
-var userID = "1" #Replace with UserID from JWT Token
+var userID = Storage.getUserIdFromToken()
 
 
 func _ready():

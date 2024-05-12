@@ -21,3 +21,17 @@ func load_token() -> String:
 		return token
 	return ""
 
+func getUserIdFromToken() -> String:
+	var token = load_token()
+	if token != "":
+		var decoded_token = JWT.decode(token)
+		if decoded_token != null:
+			var user_id = decoded_token.get_claim("UserID")
+			if user_id != null:
+				return user_id
+			else:
+				print("UserID not found in the JWT token")
+		else:
+			print("Failed to decode JWT token")
+	return ""
+
