@@ -87,6 +87,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Storage="*res://Scripts/Storage.gd"
+UserManager="*res://Scripts/UserManager.gd"
 
 [editor_plugins]
 

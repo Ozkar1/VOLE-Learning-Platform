@@ -33,11 +33,16 @@ func send_login_request(username, password):
 	
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var response = parse_json(body.get_string_from_utf8())
+	print("Debug: Full Response Data - ", response)  
 	if response_code == 200:
 		var token = response.token
 		print("Login successful, token:", token)
 		Storage.save_token(token)  # Save the token securely
 		print(Storage.load_token())
+		if response.has("user"):
+			store_user_data(response["user"])
+		else:
+			print("Error: User data not found in response")
 		get_tree().change_scene("res://Scenes/MainMenu.tscn")
 		# Store token securely and use for subsequent requests
 	else:
@@ -45,6 +50,9 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		loginErrorLabel.text =  "Incorrect username and/or password"
 		loginErrorLabel.visible = true
 		
+
+func store_user_data(user_data):
+	UserManager.store_data(user_data)
 
 func validate_input():
 	if username_input.text.length() == 0:
