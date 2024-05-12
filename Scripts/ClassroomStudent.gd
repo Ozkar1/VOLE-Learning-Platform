@@ -16,11 +16,13 @@ func _ready():
 #	pass
 
 
+func _on_MenuBtn_pressed():
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
 
-func _on_BackToTeacherClassroomBtn_pressed():
-	get_tree().change_scene("res://Scenes/ClassroomTeacher.tscn")
+func _on_JoinClassroomBtn_pressed():
+	get_tree().change_scene("res://Scenes/Classrooms/JoinClassroom.tscn")
 
 
-func _on_BackToStudentClassroomBtn_pressed():
-	get_tree().change_scene("res://Scenes/ClassroomStudent.tscn")
+func _on_LeaveClassroomBtn_pressed():
+	get_tree().change_scene("res://Scenes/Classrooms/LeaveClassroom.tscn")

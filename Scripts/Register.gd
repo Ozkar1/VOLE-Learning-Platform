@@ -29,8 +29,6 @@ onready var http_request = $HTTPRequest
 func _ready():
 	add_items()
 	errorLabel.visible = false
-	password_input.secret = true
-	password_confirm_input.secret = true
 
 ## Function to add items to the dropdown menu
 func add_items():
@@ -120,4 +118,3 @@ func _on_SignUpBtn_pressed():
 	
 	# If all input is valid, proceed with registration
 	register_user()
-	get_tree().change_scene("res://Scenes/Login.tscn")

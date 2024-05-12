@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Themes/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=2]
+[ext_resource path="res://Scripts/ClassroomStudent.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -10,7 +11,9 @@ font_data = ExtResource( 1 )
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -131, 54 )
 theme = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -31,7 +34,7 @@ grow_vertical = 2
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "My Classroom(s)"
+text = "My Classroom"
 align = 1
 valign = 2
 
@@ -46,7 +49,7 @@ margin_right = -201.76
 margin_bottom = -61.0
 text = "Back To Menu"
 
-[node name="JoinAddBtn" type="Button" parent="ColorRect"]
+[node name="JoinClassroomBtn" type="Button" parent="ColorRect"]
 anchor_left = 0.49
 anchor_top = 0.5
 anchor_right = 0.49
@@ -56,29 +59,19 @@ margin_top = -21.0
 margin_right = -201.76
 margin_bottom = 29.0
 rect_pivot_offset = Vector2( 280, 40 )
-text = "Join/Add Classroom"
+text = "Join Classroom"
 
-[node name="Button2" type="Button" parent="ColorRect"]
-visible = false
+[node name="LeaveClassroomBtn" type="Button" parent="ColorRect"]
 anchor_left = 0.49
 anchor_top = 0.5
 anchor_right = 0.49
 anchor_bottom = 0.5
-margin_left = -151.76
-margin_top = -40.0
-margin_right = 152.24
-margin_bottom = 10.0
-
-[node name="Button3" type="Button" parent="ColorRect"]
-visible = false
-anchor_left = 0.49
-anchor_top = 0.5
-anchor_right = 0.49
-anchor_bottom = 0.5
-margin_left = -151.76
-margin_top = 40.0
-margin_right = 152.24
-margin_bottom = 90.0
+margin_left = -451.76
+margin_top = 69.0
+margin_right = -201.76
+margin_bottom = 119.0
+rect_pivot_offset = Vector2( 280, 40 )
+text = "Leave Classroom"
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect"]
 anchor_left = 0.5
@@ -121,34 +114,6 @@ margin_right = 98.0
 margin_bottom = 28.0
 text = "View"
 
-[node name="OptionButton" type="OptionButton" parent="ColorRect"]
-margin_left = 552.0
-margin_top = 111.0
-margin_right = 802.0
-margin_bottom = 161.0
-rect_pivot_offset = Vector2( -364, 280 )
-text = "    Please select classroom"
-
-[node name="DeleteClassroomBtn" type="Button" parent="ColorRect"]
-anchor_left = 0.49
-anchor_top = 0.5
-anchor_right = 0.49
-anchor_bottom = 0.5
-margin_left = -451.76
-margin_top = 69.0
-margin_right = -201.76
-margin_bottom = 119.0
-rect_pivot_offset = Vector2( 280, 40 )
-text = "Leave/Delete Classroom"
-
-[node name="AddAssignmentBtn" type="Button" parent="ColorRect"]
-anchor_left = 0.49
-anchor_top = 0.5
-anchor_right = 0.49
-anchor_bottom = 0.5
-margin_left = -451.76
-margin_top = 159.0
-margin_right = -201.76
-margin_bottom = 209.0
-rect_pivot_offset = Vector2( 280, 40 )
-text = "Add new assignment"
+[connection signal="pressed" from="ColorRect/MenuBtn" to="." method="_on_MenuBtn_pressed"]
+[connection signal="pressed" from="ColorRect/JoinClassroomBtn" to="." method="_on_JoinClassroomBtn_pressed"]
+[connection signal="pressed" from="ColorRect/LeaveClassroomBtn" to="." method="_on_LeaveClassroomBtn_pressed"]

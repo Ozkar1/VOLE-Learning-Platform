@@ -1,0 +1,136 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Themes/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=2]
+[ext_resource path="res://CreateClassroom.gd" type="Script" id=3]
+[ext_resource path="res://Themes/fonts/OpenSans-Light.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 0.8, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.878431, 0.878431, 0.686275, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="DynamicFont" id=6]
+size = 22
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 4 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_vertical_guides_": [ 514.0 ]
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 540, 175 )
+color = Color( 1, 1, 0.8, 1 )
+
+[node name="BackToTeacherClassroomBtn" type="Button" parent="ColorRect"]
+anchor_left = 0.49
+anchor_top = 0.5
+anchor_right = 0.49
+anchor_bottom = 0.5
+margin_left = -480.76
+margin_top = -271.0
+margin_right = -215.76
+margin_bottom = -221.0
+text = "Back to classroom"
+
+[node name="Panel" type="Panel" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -223.0
+margin_top = -204.0
+margin_right = 227.0
+margin_bottom = 271.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="CreateClassroomTitle" type="Label" parent="ColorRect/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -106.091
+margin_top = -223.5
+margin_right = 88.9089
+margin_bottom = -192.5
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 1.01408, 1 )
+rect_pivot_offset = Vector2( 113, 16 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Create Classroom"
+align = 1
+
+[node name="ClassroomIdLabel" type="Label" parent="ColorRect/Panel"]
+margin_left = 117.0
+margin_top = 110.0
+margin_right = 317.0
+margin_bottom = 133.0
+text = "Classroom Name"
+align = 1
+
+[node name="ClassroomNameInput" type="LineEdit" parent="ColorRect/Panel"]
+margin_left = 117.0
+margin_top = 135.0
+margin_right = 317.0
+margin_bottom = 168.0
+
+[node name="ClassroomDescriptionInput" type="LineEdit" parent="ColorRect/Panel"]
+margin_left = 117.0
+margin_top = 240.0
+margin_right = 317.0
+margin_bottom = 273.0
+rect_pivot_offset = Vector2( -278, -70 )
+
+[node name="ClassroomDescriptionLabel" type="Label" parent="ColorRect/Panel"]
+margin_left = 117.0
+margin_top = 215.0
+margin_right = 317.0
+margin_bottom = 238.0
+rect_pivot_offset = Vector2( -278, -45 )
+text = "Classroom Description"
+align = 1
+
+[node name="CreateClassroomBtn" type="Button" parent="ColorRect/Panel"]
+margin_left = 107.0
+margin_top = 359.0
+margin_right = 327.0
+margin_bottom = 399.0
+mouse_default_cursor_shape = 2
+text = "Create Classroom"
+icon_align = 1
+
+[node name="ErrorLabel" type="Label" parent="ColorRect"]
+margin_left = 258.0
+margin_top = 391.0
+margin_right = 771.0
+margin_bottom = 431.0
+rect_pivot_offset = Vector2( -219, 8 )
+custom_colors/font_color = Color( 0.682353, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+align = 1
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="pressed" from="ColorRect/BackToTeacherClassroomBtn" to="." method="_on_BackToTeacherClassroomBtn_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/CreateClassroomBtn" to="." method="_on_CreateClassroomBtn_pressed"]
