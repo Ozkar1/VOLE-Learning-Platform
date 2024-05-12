@@ -1,6 +1,6 @@
 extends Control
 
-var user_role = ""
+var user_role = UserManager.user_data["Role"]
 
 onready var name_label = $ColorRect/WelcomeText
 onready var http_request = $HTTPRequest
