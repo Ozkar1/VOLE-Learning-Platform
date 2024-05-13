@@ -32,7 +32,7 @@ func create_assignment():
 		var assignment_data = {
 			"title": AssignmentTitle.text,
 			"description": AssignmentDescription.text,
-			"dueDate": 1, #MOCK DATA - Change! 
+			"dueDate": "2024-08-13 22:19:50", #MOCK DATA - Change! 
 			"classroomID": classroomID,
 			"expectedInput": ExpectedInput.text,
 			"expectedMemory": ExpectedMemory.text,

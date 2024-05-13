@@ -51,7 +51,14 @@ func add_classroom_info_label(item):
 		var view_button = Button.new()
 		view_button.text = "View"
 		ViewMoreVBOX.add_child(view_button)
+		
+		view_button.connect("pressed", self, "_on_view_button_pressed", [item.ClassroomID])
 
+func _on_view_button_pressed(classroomId):
+		# Sets classroomId via the autoloaded Storage 
+	Storage.set_classroomId(classroomId)
+	get_tree().change_scene("res://Scenes/AssignmentsTeacher.tscn")
+	
 func _on_MenuBtn_pressed():
 	get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
