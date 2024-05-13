@@ -123,6 +123,7 @@ margin_right = 838.0
 margin_bottom = 180.0
 align = 1
 
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="ColorRect/MenuBtn" to="." method="_on_MenuBtn_pressed"]
 [connection signal="pressed" from="ColorRect/JoinClassroomBtn" to="." method="_on_JoinClassroomBtn_pressed"]
 [connection signal="pressed" from="ColorRect/LeaveClassroomBtn" to="." method="_on_LeaveClassroomBtn_pressed"]
