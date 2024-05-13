@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Themes/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=2]
@@ -7,6 +7,9 @@
 [sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -73,41 +76,68 @@ margin_right = 460.0
 margin_bottom = 249.0
 color = Color( 0.827451, 0.827451, 0.827451, 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/ColorRect"]
+[node name="ClassroomNameVBox" type="VBoxContainer" parent="ColorRect/ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -285.5
-margin_top = -179.0
-margin_right = -2.5
+margin_left = -281.5
+margin_top = -148.0
+margin_right = -50.5
 margin_bottom = 180.0
+rect_pivot_offset = Vector2( -702, 13 )
+custom_constants/separation = 9
 
-[node name="Label" type="Label" parent="ColorRect/ColorRect/VBoxContainer"]
-margin_right = 283.0
-margin_bottom = 23.0
-text = "Assignment 0"
+[node name="JoinCodeVBox" type="VBoxContainer" parent="ColorRect/ColorRect"]
+margin_left = 246.0
+margin_top = 32.0
+margin_right = 473.0
+margin_bottom = 359.0
+rect_pivot_offset = Vector2( -702, 13 )
+custom_constants/separation = 9
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/ColorRect"]
+[node name="ViewMoreVBox" type="VBoxContainer" parent="ColorRect/ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 187.5
-margin_top = -179.0
+margin_top = -148.0
 margin_right = 285.5
 margin_bottom = 180.0
 
-[node name="Button" type="Button" parent="ColorRect/ColorRect/VBoxContainer2"]
-margin_right = 98.0
-margin_bottom = 28.0
-text = "View"
+[node name="ClassroomNameTitle" type="Label" parent="ColorRect/ColorRect"]
+margin_left = 6.0
+margin_right = 237.0
+margin_bottom = 30.0
+text = "Classroom name"
+valign = 1
+
+[node name="JoinCodeTitle" type="Label" parent="ColorRect/ColorRect"]
+margin_left = 246.0
+margin_right = 473.0
+margin_bottom = 30.0
+text = "Join Code"
+valign = 1
+
+[node name="ViewMoreTitle" type="Label" parent="ColorRect/ColorRect"]
+margin_left = 475.0
+margin_top = 1.0
+margin_right = 574.0
+margin_bottom = 31.0
+text = "View more"
+valign = 1
 
 [node name="OptionButton" type="OptionButton" parent="ColorRect"]
-margin_left = 552.0
-margin_top = 111.0
-margin_right = 802.0
-margin_bottom = 161.0
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 40.0
+margin_top = -189.0
+margin_right = 290.0
+margin_bottom = -139.0
 rect_pivot_offset = Vector2( -364, 280 )
 text = "    Please select classroom"
 
@@ -134,6 +164,20 @@ margin_right = -201.76
 margin_bottom = 209.0
 rect_pivot_offset = Vector2( 280, 40 )
 text = "Add new assignment"
+
+[node name="VSeparator" type="VSeparator" parent="."]
+margin_left = 411.0
+margin_top = 158.0
+margin_right = 828.0
+margin_bottom = 547.0
+custom_styles/separator = SubResource( 2 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 399.0
+margin_top = 216.0
+margin_right = 972.0
+margin_bottom = 217.0
+color = Color( 0, 0, 0, 1 )
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="ColorRect/MenuBtn" to="." method="_on_MenuBtn_pressed"]
