@@ -62,3 +62,7 @@ func _on_DeleteClassroomBtn_pressed():
 
 func _on_CreateClassroomBtn_pressed():
 	get_tree().change_scene("res://Scenes/Classrooms/CreateClassroom.tscn")
+
+
+func _on_AddAssignmentBtn_pressed():
+	get_tree().change_scene("res://Scenes/CreateAssignment.tscn")

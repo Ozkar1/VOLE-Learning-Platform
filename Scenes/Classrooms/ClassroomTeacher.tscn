@@ -184,3 +184,4 @@ color = Color( 0, 0, 0, 1 )
 [connection signal="pressed" from="ColorRect/MenuBtn" to="ColorRect/MenuBtn" method="_on_MenuBtn_pressed"]
 [connection signal="pressed" from="ColorRect/CreateClassroomBtn" to="." method="_on_CreateClassroomBtn_pressed"]
 [connection signal="pressed" from="ColorRect/DeleteClassroomBtn" to="." method="_on_DeleteClassroomBtn_pressed"]
+[connection signal="pressed" from="ColorRect/AddAssignmentBtn" to="." method="_on_AddAssignmentBtn_pressed"]
