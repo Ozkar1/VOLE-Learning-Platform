@@ -9,8 +9,8 @@ onready var errorLabel = $ColorRect/Panel/ErrorLabel
 func _ready():
 	errorLabel.visible = false
 
-func _on_BackToStudentClassroomBtn_pressed():
-	get_tree().change_scene("res://Scenes/ClassroomStudent.tscn")
+func _on_BackToMainMenuBtn_pressed():
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
 func joinClassroom():
 	var request_data = {

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Themes/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=2]
-[ext_resource path="res://Scenes/AssignmentsTeacher.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/AssignmentsTeacher.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -106,7 +106,6 @@ margin_right = 259.0
 margin_bottom = 75.0
 text = "jeg har fået koblet næsten alt op med classroom, med undtagelse af student/leave."
 autowrap = true
-percent_visible = -0.0144928
 
 [node name="SubmissionsVBox" type="VBoxContainer" parent="ColorRect/ColorRect"]
 anchor_left = 0.5
@@ -139,6 +138,12 @@ margin_right = 573.0
 margin_bottom = 31.0
 text = "Submissions"
 valign = 1
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/ColorRect"]
+margin_top = 27.0
+margin_right = 573.0
+margin_bottom = 28.0
+color = Color( 0, 0, 0, 1 )
 
 [node name="OptionButton" type="OptionButton" parent="ColorRect"]
 visible = false
@@ -175,13 +180,6 @@ margin_top = 159.0
 margin_right = -201.76
 margin_bottom = 209.0
 rect_pivot_offset = Vector2( 280, 40 )
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = 399.0
-margin_top = 216.0
-margin_right = 972.0
-margin_bottom = 217.0
-color = Color( 0, 0, 0, 1 )
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="ColorRect/BackToClassroomBtn" to="." method="_on_BackToClassroomBtn_pressed"]

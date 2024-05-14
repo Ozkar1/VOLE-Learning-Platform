@@ -7,6 +7,10 @@ const FILE_PATH = "user://token.save"
 const ENCRYPTION_KEY = "bdbfcd9fad9a3a3e7e38c6b333cc03d4638cfcae50d00e4e4995074847111547"
 
 var _classroomId = null
+var _assignmentDescription = null
+var _assignmentTitle = null
+
+## === JWT TOKEN === ##
 
 func save_token(token: String):
 	var file = File.new()
@@ -37,8 +41,25 @@ func getUserIdFromToken() -> String:
 			print("Failed to decode JWT token")
 	return ""
 
+## === CLASSROOMS === ##
+
 func set_classroomId(classroomId):
 	_classroomId = classroomId
 
 func get_classroomId():
 	return _classroomId
+
+
+## === ASSIGNMENTS === ##
+
+func set_assignmentDescription(Description):
+	_assignmentDescription = Description
+
+func get_assignmentDescription():
+	return _assignmentDescription
+
+func set_assignmentTitle(Title):
+	_assignmentTitle = Title
+
+func get_assignmentTitle():
+	return _assignmentTitle

@@ -32,13 +32,13 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				var classroomName = "Classroom: " + item.ClassroomName
 				print("Classroom name received: " + item.ClassroomName)
 				ClassroomsSelector.add_item(classroomName)
-				add_classroom_info_label(item)
+				add_classroom(item)
 		else:
 			print("Invalid response format: expected array")
 	else:
 		print("Failed to fetch classroom data:", response_code)
 
-func add_classroom_info_label(item):
+func add_classroom(item):
 	if item.ClassroomName:
 		var classroom_name_label = Label.new()
 		classroom_name_label.text = item.ClassroomName

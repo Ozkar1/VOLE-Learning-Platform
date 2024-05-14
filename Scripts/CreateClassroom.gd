@@ -5,9 +5,6 @@ onready var classroomName = $ColorRect/Panel/ClassroomNameInput
 onready var classroomDescription = $ColorRect/Panel/ClassroomDescriptionInput
 onready var errorLabel = $ColorRect/ErrorLabel
 
-#var userID = Storage.getUserIdFromToken()
-
-
 func _ready():
 	errorLabel.visible = false
 

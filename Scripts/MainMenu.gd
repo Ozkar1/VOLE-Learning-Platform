@@ -24,7 +24,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		var response = parse_json(body.get_string_from_utf8())
 		user_role = response.role 
 		print(response)
-		name_label.text = response.FirstName + " " + response.LastName + " ("+ response.role +")"
+		name_label.text = "WELCOME! \n" + response.FirstName + " " + response.LastName + " ("+ response.role +")"
 		print("Role retrieved:", user_role)
 	else:
 		print("Failed to fetch user data:", response_code)

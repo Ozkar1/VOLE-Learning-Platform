@@ -33,7 +33,7 @@ func create_assignment():
 			"title": AssignmentTitle.text,
 			"description": AssignmentDescription.text,
 			"dueDate": "2024-08-13 22:19:50", #MOCK DATA - Change! 
-			"classroomID": classroomID,
+			"classroomId": int(classroomID),
 			"expectedInput": ExpectedInput.text,
 			"expectedMemory": ExpectedMemory.text,
 			"expectedRegister": ExpectedRegister.text
