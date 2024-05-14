@@ -1,6 +1,6 @@
 extends Control
 
-var user_role = ""
+var user_role = UserManager.user_data["Role"]
 
 onready var name_label = $ColorRect/WelcomeText
 onready var http_request = $HTTPRequest
@@ -14,8 +14,9 @@ func _ready():
 func fetch_user_info():
 	var token = Storage.load_token()  
 	var headers = [
+		"Content-Type: application/json",
 		"Authorization: Bearer " + token
-	]
+		]
 	http_request.request(API_URL, headers, true, HTTPClient.METHOD_GET, "")
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
@@ -23,7 +24,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		var response = parse_json(body.get_string_from_utf8())
 		user_role = response.role 
 		print(response)
-		name_label.text = response.FirstName + " " + response.LastName + " ("+ response.role +")"
+		name_label.text = "WELCOME! \n" + response.FirstName + " " + response.LastName + " ("+ response.role +")"
 		print("Role retrieved:", user_role)
 	else:
 		print("Failed to fetch user data:", response_code)

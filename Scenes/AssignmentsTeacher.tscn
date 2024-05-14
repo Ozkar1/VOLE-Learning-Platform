@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Themes/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=2]
-[ext_resource path="res://Scripts/ClassroomTeacher.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/AssignmentsTeacher.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -29,20 +29,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -172.0
-margin_top = -282.0
-margin_right = 177.0
-margin_bottom = -221.0
+margin_left = -411.0
+margin_top = -286.0
+margin_right = 416.0
+margin_bottom = -225.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "My Classroom"
+text = "Classroom Name - Assignments"
 align = 1
 valign = 2
 
-[node name="MenuBtn" type="Button" parent="ColorRect"]
+[node name="BackToClassroomBtn" type="Button" parent="ColorRect"]
 anchor_left = 0.49
 anchor_top = 0.5
 anchor_right = 0.49
@@ -51,9 +51,9 @@ margin_left = -451.76
 margin_top = -111.0
 margin_right = -201.76
 margin_bottom = -61.0
-text = "Back To Menu"
+text = "Back To Classrooms"
 
-[node name="CreateClassroomBtn" type="Button" parent="ColorRect"]
+[node name="CreateAssignmentBtn" type="Button" parent="ColorRect"]
 anchor_left = 0.49
 anchor_top = 0.5
 anchor_right = 0.49
@@ -63,7 +63,7 @@ margin_top = -21.0
 margin_right = -201.76
 margin_bottom = 29.0
 rect_pivot_offset = Vector2( 280, 40 )
-text = "Create New Classroom"
+text = "Add new assignment"
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect"]
 anchor_left = 0.5
@@ -76,57 +76,49 @@ margin_right = 460.0
 margin_bottom = 249.0
 color = Color( 0.827451, 0.827451, 0.827451, 1 )
 
-[node name="ClassroomNameVBox" type="VBoxContainer" parent="ColorRect/ColorRect"]
+[node name="AssignmentNameVBox" type="VBoxContainer" parent="ColorRect/ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -281.5
 margin_top = -148.0
-margin_right = -50.5
+margin_right = -1.5
 margin_bottom = 180.0
 rect_pivot_offset = Vector2( -702, 13 )
-custom_constants/separation = 9
+custom_constants/separation = 15
 
-[node name="JoinCodeVBox" type="VBoxContainer" parent="ColorRect/ColorRect"]
-margin_left = 246.0
-margin_top = 32.0
-margin_right = 473.0
-margin_bottom = 359.0
-rect_pivot_offset = Vector2( -702, 13 )
-custom_constants/separation = 9
-
-[node name="ViewMoreVBox" type="VBoxContainer" parent="ColorRect/ColorRect"]
+[node name="SubmissionsVBox" type="VBoxContainer" parent="ColorRect/ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 187.5
+margin_left = 185.5
 margin_top = -148.0
-margin_right = 285.5
+margin_right = 283.5
 margin_bottom = 180.0
+custom_constants/separation = 10
 
 [node name="ClassroomNameTitle" type="Label" parent="ColorRect/ColorRect"]
 margin_left = 6.0
-margin_right = 237.0
+margin_right = 214.0
 margin_bottom = 30.0
-text = "Classroom name"
-valign = 1
-
-[node name="JoinCodeTitle" type="Label" parent="ColorRect/ColorRect"]
-margin_left = 246.0
-margin_right = 473.0
-margin_bottom = 30.0
-text = "Join Code"
+text = "Assignment Name"
 valign = 1
 
 [node name="ViewMoreTitle" type="Label" parent="ColorRect/ColorRect"]
-margin_left = 475.0
+margin_left = 469.0
 margin_top = 1.0
-margin_right = 574.0
+margin_right = 570.0
 margin_bottom = 31.0
-text = "View more"
+text = "Submissions"
 valign = 1
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/ColorRect"]
+margin_top = 27.0
+margin_right = 573.0
+margin_bottom = 28.0
+color = Color( 0, 0, 0, 1 )
 
 [node name="OptionButton" type="OptionButton" parent="ColorRect"]
 visible = false
@@ -139,9 +131,8 @@ margin_top = -189.0
 margin_right = 290.0
 margin_bottom = -139.0
 rect_pivot_offset = Vector2( -364, 280 )
-text = "    Please select classroom"
 
-[node name="DeleteClassroomBtn" type="Button" parent="ColorRect"]
+[node name="DeleteAssignmentBtn" type="Button" parent="ColorRect"]
 anchor_left = 0.49
 anchor_top = 0.5
 anchor_right = 0.49
@@ -151,9 +142,10 @@ margin_top = 69.0
 margin_right = -201.76
 margin_bottom = 119.0
 rect_pivot_offset = Vector2( 280, 40 )
-text = "Delete Classroom"
+text = "Delete Assignment"
 
 [node name="AddAssignmentBtn" type="Button" parent="ColorRect"]
+visible = false
 anchor_left = 0.49
 anchor_top = 0.5
 anchor_right = 0.49
@@ -163,18 +155,8 @@ margin_top = 159.0
 margin_right = -201.76
 margin_bottom = 209.0
 rect_pivot_offset = Vector2( 280, 40 )
-text = "Add new assignment"
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = 399.0
-margin_top = 216.0
-margin_right = 972.0
-margin_bottom = 217.0
-color = Color( 0, 0, 0, 1 )
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
-[connection signal="pressed" from="ColorRect/MenuBtn" to="." method="_on_MenuBtn_pressed"]
-[connection signal="pressed" from="ColorRect/MenuBtn" to="ColorRect/MenuBtn" method="_on_MenuBtn_pressed"]
-[connection signal="pressed" from="ColorRect/CreateClassroomBtn" to="." method="_on_CreateClassroomBtn_pressed"]
-[connection signal="pressed" from="ColorRect/DeleteClassroomBtn" to="." method="_on_DeleteClassroomBtn_pressed"]
-[connection signal="pressed" from="ColorRect/AddAssignmentBtn" to="." method="_on_AddAssignmentBtn_pressed"]
+[connection signal="pressed" from="ColorRect/BackToClassroomBtn" to="." method="_on_BackToClassroomBtn_pressed"]
+[connection signal="pressed" from="ColorRect/CreateAssignmentBtn" to="." method="_on_CreateAssignmentBtn_pressed"]
+[connection signal="pressed" from="ColorRect/DeleteAssignmentBtn" to="." method="_on_DeleteAssignmentBtn_pressed"]

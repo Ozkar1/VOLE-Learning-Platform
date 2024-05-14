@@ -1,0 +1,190 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Themes/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/CreateAssignment.gd" type="Script" id=2]
+[ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 0.8, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.878431, 0.878431, 0.686275, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_vertical_guides_": [ 514.0 ]
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 540, 175 )
+color = Color( 1, 1, 0.8, 1 )
+
+[node name="BackToTeacherClassroomBtn" type="Button" parent="ColorRect"]
+anchor_left = 0.49
+anchor_top = 0.5
+anchor_right = 0.49
+anchor_bottom = 0.5
+margin_left = -480.76
+margin_top = -271.0
+margin_right = -215.76
+margin_bottom = -221.0
+text = "Back to classroom"
+
+[node name="Panel" type="Panel" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -223.0
+margin_top = -204.0
+margin_right = 227.0
+margin_bottom = 271.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="PickClassroomLabel" type="Label" parent="ColorRect/Panel"]
+margin_left = 124.0
+margin_top = 63.0
+margin_right = 324.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( -278, -45 )
+text = "Pick Classroom"
+align = 1
+
+[node name="OptionButton" type="OptionButton" parent="ColorRect/Panel"]
+anchor_left = 0.501
+anchor_top = 0.5
+anchor_right = 0.501
+anchor_bottom = 0.5
+margin_left = -103.45
+margin_top = -143.5
+margin_right = 103.55
+margin_bottom = -106.5
+
+[node name="CreateAssignmentLabel" type="Label" parent="ColorRect/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -104.182
+margin_top = -223.5
+margin_right = 103.818
+margin_bottom = -192.5
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 1.01408, 1 )
+rect_pivot_offset = Vector2( 113, 16 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Create Assignment"
+align = 1
+
+[node name="AssignmentTitleLabel" type="Label" parent="ColorRect/Panel"]
+margin_left = 1.0
+margin_top = 160.0
+margin_right = 225.0
+margin_bottom = 183.0
+rect_pivot_offset = Vector2( 141, 14 )
+text = "Assignment Title"
+align = 1
+
+[node name="AssignmentTitleInput" type="LineEdit" parent="ColorRect/Panel"]
+margin_left = 13.0
+margin_top = 184.0
+margin_right = 213.0
+margin_bottom = 217.0
+
+[node name="AssignmentDescriptionLabel" type="Label" parent="ColorRect/Panel"]
+margin_left = 225.0
+margin_top = 160.0
+margin_right = 450.0
+margin_bottom = 183.0
+rect_pivot_offset = Vector2( -278, -45 )
+text = "Assignment Description"
+align = 1
+
+[node name="AssignmentDescriptionInput" type="LineEdit" parent="ColorRect/Panel"]
+margin_left = 238.0
+margin_top = 185.0
+margin_right = 438.0
+margin_bottom = 218.0
+rect_pivot_offset = Vector2( -278, -70 )
+
+[node name="ExpectedInputLabel" type="Label" parent="ColorRect/Panel"]
+margin_left = 1.0
+margin_top = 232.0
+margin_right = 225.0
+margin_bottom = 255.0
+rect_pivot_offset = Vector2( -278, -45 )
+text = "Expected Input"
+align = 1
+
+[node name="ExpectedInput" type="LineEdit" parent="ColorRect/Panel"]
+margin_left = 13.0
+margin_top = 256.0
+margin_right = 213.0
+margin_bottom = 289.0
+rect_pivot_offset = Vector2( -278, -70 )
+
+[node name="ExpectedMemoryLabel" type="Label" parent="ColorRect/Panel"]
+margin_left = 225.0
+margin_top = 232.0
+margin_right = 450.0
+margin_bottom = 255.0
+rect_pivot_offset = Vector2( -278, -45 )
+text = "Expected Memory"
+align = 1
+
+[node name="ExpectedMemoryInput" type="LineEdit" parent="ColorRect/Panel"]
+margin_left = 238.0
+margin_top = 257.0
+margin_right = 438.0
+margin_bottom = 290.0
+rect_pivot_offset = Vector2( -278, -70 )
+
+[node name="ExpectedRegisterLabel" type="Label" parent="ColorRect/Panel"]
+margin_left = 1.0
+margin_top = 300.0
+margin_right = 225.0
+margin_bottom = 323.0
+rect_pivot_offset = Vector2( -278, -45 )
+text = "Expected Register"
+align = 1
+
+[node name="ExpectedRegisterInput" type="LineEdit" parent="ColorRect/Panel"]
+margin_left = 13.0
+margin_top = 326.0
+margin_right = 213.0
+margin_bottom = 359.0
+rect_pivot_offset = Vector2( -278, -70 )
+
+[node name="CreateAssignmentmBtn" type="Button" parent="ColorRect/Panel"]
+margin_left = 114.0
+margin_top = 422.0
+margin_right = 334.0
+margin_bottom = 462.0
+mouse_default_cursor_shape = 2
+text = "Create Assignment"
+icon_align = 1
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="pressed" from="ColorRect/BackToTeacherClassroomBtn" to="." method="_on_BackToTeacherClassroomBtn_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/CreateAssignmentmBtn" to="." method="_on_CreateAssignmentmBtn_pressed"]
