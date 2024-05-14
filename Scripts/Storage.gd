@@ -7,6 +7,7 @@ const FILE_PATH = "user://token.save"
 const ENCRYPTION_KEY = "bdbfcd9fad9a3a3e7e38c6b333cc03d4638cfcae50d00e4e4995074847111547"
 
 var _classroomId = null
+var _classroomName = null
 var _assignmentDescription = null
 var _assignmentTitle = null
 
@@ -49,6 +50,11 @@ func set_classroomId(classroomId):
 func get_classroomId():
 	return _classroomId
 
+func set_classroomName(classroomName):
+	_classroomName = classroomName
+
+func get_classroomName():
+	return _classroomName
 
 ## === ASSIGNMENTS === ##
 

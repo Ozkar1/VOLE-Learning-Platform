@@ -52,11 +52,12 @@ func add_classroom(item):
 		view_button.text = "View"
 		ViewMoreVBOX.add_child(view_button)
 		
-		view_button.connect("pressed", self, "_on_view_button_pressed", [item.ClassroomID])
+		view_button.connect("pressed", self, "_on_view_button_pressed", [item.ClassroomID, item.ClassroomName])
 
-func _on_view_button_pressed(classroomId):
+func _on_view_button_pressed(classroomId,classroomName):
 		# Sets classroomId via the autoloaded Storage 
 	Storage.set_classroomId(classroomId)
+	Storage.set_classroomName(classroomName)
 	get_tree().change_scene("res://Scenes/AssignmentsTeacher.tscn")
 	
 func _on_MenuBtn_pressed():
