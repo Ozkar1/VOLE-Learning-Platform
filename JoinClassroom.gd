@@ -16,7 +16,7 @@ func joinClassroom():
 	var request_data = {
 		"joinCode": classroomCode.text,
 	}
-	var url = "http://localhost:3000/api/classrooms/enroll"
+	var url = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/classrooms/enroll"
 	var token = Storage.load_token()  
 	var headers = [
 		"Content-Type: application/json",

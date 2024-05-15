@@ -3,7 +3,7 @@ extends HTTPRequest
 
 
 # The URL to fetch classroom info
-var classroom_url = "http://localhost:3000/api/classrooms/student"
+var classroom_url = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/classrooms/student"
 
 # A reference to the OptionButton in the scene
 onready var assignment_selector = $OptionButton
@@ -28,7 +28,7 @@ func fetch_student_classroom_info():
 
 func fetch_student_assignment_info(classroomId):
 	var token = Storage.load_token()
-	var assignment_url = "http://localhost:3000/api/assignments/" + str(classroomId)
+	var assignment_url = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/assignments/" + str(classroomId)
 	var headers = [
 		"Content-Type: application/json",
 		"Authorization: Bearer " + token

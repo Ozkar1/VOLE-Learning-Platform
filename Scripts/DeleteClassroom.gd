@@ -10,7 +10,7 @@ var ClassroomDeleted = false
 var ClassroomIDMap = {}
 
 
-var Classroom_info_api = "http://localhost:3000/api/classrooms/teacher"
+var Classroom_info_api = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/classrooms/teacher"
 
 func _ready():
 	fetch_teacher_classroom_info()
@@ -30,7 +30,7 @@ func deleteClassroom():
 	var classroomID = ClassroomIDMap[selectedIdx]
 	if classroomID:
 		var token = Storage.load_token()  
-		var url = "http://localhost:3000/api/classrooms/delete/" + str(classroomID)
+		var url = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/classrooms/delete/" + str(classroomID)
 		var headers = [
 			"Content-Type: application/json",
 			"Authorization: Bearer " + token

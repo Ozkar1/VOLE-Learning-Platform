@@ -15,7 +15,7 @@ func _ready():
 	classroomId = Storage.get_classroomId()
 	classroomName = Storage.get_classroomName()
 	classromNameLabel.text = classroomName + " - Assignments"
-	url = "http://localhost:3000/api/assignments/" + str(classroomId)
+	url = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/assignments/" + str(classroomId)
 	alertMsg = Storage.get_alertMsg()
 	if alertMsg != null:
 		Storage.alert(alertMsg)
@@ -37,7 +37,7 @@ func get_completion_status_info():
 		"Content-Type: application/json",
 		"Authorization: Bearer " + token
 	]
-	var completion_url = "http://localhost:3000/api/assignments/11/completions"
+	var completion_url = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/assignments/11/completions"
 	http_request.request(completion_url, headers, true, HTTPClient.METHOD_GET, "")
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):

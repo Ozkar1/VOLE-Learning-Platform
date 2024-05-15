@@ -1,7 +1,7 @@
 extends Node
 
 # Define the URL of your backend
-var backend_url = "http://localhost:3000/assignment"
+var backend_url = "https://sunlit-inn-423416-r4.ew.r.appspot.com/assignment"
 
 # Define variables to store the expected values
 var expected_input = ""

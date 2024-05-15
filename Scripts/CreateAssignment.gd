@@ -10,8 +10,8 @@ onready var ClassroomPicker = $ColorRect/Panel/OptionButton
 onready var http_request = $HTTPRequest
 
 var ClassroomIDMap = {}
-var Classroom_info_api = "http://localhost:3000/api/classrooms/teacher"
-var Assignment_create_api = "http://localhost:3000/api/assignments/create"
+var Classroom_info_api = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/classrooms/teacher"
+var Assignment_create_api = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/assignments/create"
 
 func _ready():
 	fetch_teacher_classroom_info()

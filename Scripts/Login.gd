@@ -25,7 +25,7 @@ func _on_LoginButton_pressed():
 	send_login_request(username, password)
 	
 func send_login_request(username, password):
-	var url = "http://localhost:3000/api/users/login"
+	var url = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/users/login"
 	var headers = ["Content-Type: application/json"]
 	var json_data = to_json({"Username": username, "Password": password})
 	print(json_data)

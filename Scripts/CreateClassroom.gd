@@ -15,7 +15,7 @@ func createClassroom():
 		"ClassroomName": classroomName.text,
 		"Description": classroomDescription.text
 	}
-	var url = "http://localhost:3000/api/classrooms/create"
+	var url = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/classrooms/create"
 	var headers = [
 		"Content-Type: application/json",
 		"Authorization: Bearer " + token

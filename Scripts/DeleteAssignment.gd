@@ -14,7 +14,7 @@ var assignments_info_api
 
 func _ready():
 	classroomId = Storage.get_classroomId()
-	assignments_info_api = "http://localhost:3000/api/assignments/" + str(classroomId)
+	assignments_info_api = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/assignments/" + str(classroomId)
 	fetch_teacher_classroom_info()
 	ErrorLabel.visible = false
 
@@ -31,7 +31,7 @@ func deleteAssignment():
 	var assignmentID = AssignmentIDMap[selectedIdx]
 	if assignmentID:
 		var token = Storage.load_token()  
-		var url = "http://localhost:3000/api/assignments/delete/" + str(assignmentID)
+		var url = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/assignments/delete/" + str(assignmentID)
 		var headers = [
 			"Content-Type: application/json",
 			"Authorization: Bearer " + token

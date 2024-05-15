@@ -7,7 +7,7 @@ onready var name_label = $ColorRect/WelcomeText
 onready var http_request = $HTTPRequest
 
 # Constant variables for the API
-const API_URL = "http://localhost:3000/api/profile" 
+const API_URL = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/profile" 
 
 func _ready():
 	fetch_user_info()

@@ -10,7 +10,7 @@ onready var ViewMoreVBOX = $ColorRect/ColorRect/ViewMoreVBox
 onready var classroomName
 var alertMsg
 
-const url = "http://localhost:3000/api/classrooms/teacher" 
+const url = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/classrooms/teacher" 
 
 func _ready():
 	alertMsg = Storage.get_alertMsg()

@@ -51,7 +51,7 @@ func register_user():
 		"Role": role_dropdown.get_item_text(role_dropdown.selected).to_lower()
 	}
 	
-	var url = "http://localhost:3000/api/users/register" # Change this URL to your API endpoint
+	var url = "https://sunlit-inn-423416-r4.ew.r.appspot.com/api/users/register" # Change this URL to your API endpoint
 	var headers = ["Content-Type: application/json"]
 	var json_data = to_json(user_data)
 	http_request.request(url, headers, true, HTTPClient.METHOD_POST, json_data)

@@ -50,7 +50,7 @@ func _on_SubmitButton_pressed():
 	}
 
 	var json_data = to_json(request)
-	http_request.request("http://localhost:3000/api/assignments/submit", headers, true, HTTPClient.METHOD_POST, json_data)
+	http_request.request("https://sunlit-inn-423416-r4.ew.r.appspot.com/api/assignments/submit", headers, true, HTTPClient.METHOD_POST, json_data)
 
 # Function to handle the HTTP request completion
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
