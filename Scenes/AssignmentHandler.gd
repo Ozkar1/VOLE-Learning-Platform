@@ -43,7 +43,6 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			print("Failed to parse JSON response: %s" % response.error_string)
 		else:
 			var data = response
-			print("Parsed response: %s" % data)
 			if is_fetching_classroom:
 				handle_classroom_response(data)
 			else:
@@ -52,7 +51,6 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		print("HTTP Request failed with response code: %d" % response_code)
 
 func handle_classroom_response(data):
-	print("Handling classroom response: %s" % data)
 	if data is Array and data.size() > 0:
 		var first_classroom = data[0]
 		if first_classroom.has("ClassroomID"):
@@ -66,7 +64,7 @@ func handle_classroom_response(data):
 		print("Classroom response is not a non-empty array")
 
 func handle_assignments_response(data):
-	print("Handling assignments response: %s" % data)
+
 	if data is Array:
 		populate_assignment_selector(data)
 	elif data.has("assignments"):
@@ -76,7 +74,6 @@ func handle_assignments_response(data):
 
 func populate_assignment_selector(assignments):
 	assignment_selector.clear()
-	print("Populating assignment selector with: %s" % assignments)
 	for assignment in assignments:
 		if assignment.has("Title") and assignment.has("AssignmentID"):
 			assignment_selector.add_item(assignment["Title"], assignment["AssignmentID"])
