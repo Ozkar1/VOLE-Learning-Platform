@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/VOLE/Simulator.cs" type="Script" id=1]
 [ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=2]
-[ext_resource path="res://Scripts/SimulatorHelper.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/VOLE/SimulatorHelper.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/AssignmentHandler.gd" type="Script" id=4]
 
 [sub_resource type="Theme" id=1]
 
@@ -15,9 +16,20 @@ __meta__ = {
 "_edit_vertical_guides_": [ 1433.0, 1340.0 ]
 }
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource( 4 )
+
+[node name="OptionButton" type="OptionButton" parent="HTTPRequest"]
+margin_left = 826.0
+margin_top = 139.0
+margin_right = 981.0
+margin_bottom = 167.0
+theme = ExtResource( 2 )
+
 [node name="BackgroundColor" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 956, 282 )
 theme = SubResource( 1 )
 color = Color( 1, 1, 0.8, 1 )
 
@@ -156,10 +168,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 315.0
-margin_top = -147.0
-margin_right = 483.0
-margin_bottom = -97.0
+margin_left = 313.0
+margin_top = -115.0
+margin_right = 481.0
+margin_bottom = -65.0
 rect_pivot_offset = Vector2( 117, 9 )
 text = "Submit Assignment"
 
@@ -173,4 +185,5 @@ margin_top = 4.0
 margin_right = 4.0
 margin_bottom = 27.0
 
+[connection signal="request_completed" from="HTTPRequest" to="HTTPRequest" method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="MenuButton" to="MenuButton" method="_on_MenuButton_pressed"]
