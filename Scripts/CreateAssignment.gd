@@ -50,7 +50,8 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var response = parse_json(body.get_string_from_utf8())
 	if response_code == 201:
 		print("Assignment created successfully:", body)
-		get_tree().change_scene("res://Scenes/Classrooms/ClassroomTeacher.tscn")
+		Storage.set_alertMsg("Assignment successfully created!")
+		get_tree().change_scene("res://Scenes/AssignmentsTeacher.tscn")
 	elif response_code == 200:
 		ClassroomPicker.clear()
 		ClassroomIDMap.clear()
@@ -67,7 +68,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 
 
 func _on_BackToTeacherClassroomBtn_pressed():
-	get_tree().change_scene("res://Scenes/Classrooms/ClassroomTeacher.tscn")
+	get_tree().change_scene("res://Scenes/AssignmentsTeacher.tscn")
 
 
 func _on_CreateAssignmentmBtn_pressed():

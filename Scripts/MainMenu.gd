@@ -1,6 +1,7 @@
 extends Control
 
 var user_role = UserManager.user_data["Role"]
+var alertMsg
 
 onready var name_label = $ColorRect/WelcomeText
 onready var http_request = $HTTPRequest
@@ -10,6 +11,10 @@ const API_URL = "http://localhost:3000/api/profile"
 
 func _ready():
 	fetch_user_info()
+	alertMsg = Storage.get_alertMsg()
+	if alertMsg != null:
+		Storage.alert(alertMsg)
+		Storage.clearMsgValue()
 
 func fetch_user_info():
 	var token = Storage.load_token()  
@@ -28,6 +33,9 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		print("Role retrieved:", user_role)
 	else:
 		print("Failed to fetch user data:", response_code)
+
+
+
 
 
 func _on_VoleBtn_pressed():

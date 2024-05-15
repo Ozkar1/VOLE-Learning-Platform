@@ -42,6 +42,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var response = parse_json(body.get_string_from_utf8())
 	if ClassroomDeleted:
 		if response_code == 200:
+			Storage.set_alertMsg("Classroom successfully deleted!")
 			get_tree().change_scene("res://Scenes/Classrooms/ClassroomTeacher.tscn")
 		else:
 			print("Failed to delete classroom:", response)

@@ -1,10 +1,14 @@
 extends HTTPRequest
 
+
+
 # The URL to fetch classroom info
 var classroom_url = "http://localhost:3000/api/classrooms/student"
 
 # A reference to the OptionButton in the scene
 onready var assignment_selector = $OptionButton
+onready var assignmentDesc = $AssignmentDesc
+onready var assignmentType = $AssignmentType
 
 # Flag to track what type of request is being handled
 var is_fetching_classroom = true
@@ -79,3 +83,8 @@ func populate_assignment_selector(assignments):
 			assignment_selector.add_item(assignment["Title"], assignment["AssignmentID"])
 		else:
 			print("Invalid assignment format: %s" % assignment)
+
+
+func _on_MenuButton_pressed():
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+

@@ -9,7 +9,10 @@ onready var leaveClassBtn = $ColorRect/LeaveClassroomBtn
 onready var confirmLeaveLabel = $ColorRect/ConfirmLeaveLabel
 onready var confirmLeave = $ColorRect/ConfirmLeave
 
+var Criteria
+var CriteriaType
 var classroomId
+var alertMsg
 var assignemntsFetched = false
 var leaveButtonPressed = false
 
@@ -19,6 +22,10 @@ func _ready():
 	fetch_student_classroom_info()
 	classroomNameLabel.visible = false
 	leaveClassBtn.visible = false
+	alertMsg = Storage.get_alertMsg()
+	if alertMsg != null:
+		Storage.alert(alertMsg)
+		Storage.clearMsgValue()
 
 func fetch_student_classroom_info():
 	var token = Storage.load_token()  
@@ -58,7 +65,23 @@ func add_assignment(item):
 		view_assignment_button.text = "View"
 		viewAssignmentVBox.add_child(view_assignment_button)
 		
-		view_assignment_button.connect("pressed", self, "_on_view_button_pressed", [item.Description, item.Title])
+		if item.ExpectedInput != null:
+			CriteriaType = "Expected Input"
+			Criteria = item.ExpectedInput
+		elif item.ExpectedMemory != null:
+			CriteriaType = "Expected Memory"
+			Criteria = item.ExpectedMemory
+		elif item.ExpectedRegister != null:
+			CriteriaType = "Expected Register"
+			Criteria = item.ExpectedRegister
+		else:
+			return null
+		view_assignment_button.connect("pressed", self, "_on_view_button_pressed", [
+			item.Description,
+			item.Title,
+			item.AssignmentID,
+			Criteria,
+			CriteriaType])
 
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
@@ -90,16 +113,26 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			else: 
 				print("assignments have been fetched")
 		if leaveButtonPressed:
+			Storage.set_alertMsg("You have successfully left the classroom")
 			get_tree().change_scene("res://Scenes/MainMenu.tscn")
 	else:
 		print("Failed to fetch classroom data:", response_code)
 
-func _on_view_button_pressed(Description, Title):
+func _on_view_button_pressed(Description, Title, AssignmentID, Criteria, CriteriaType):
 	Storage.set_assignmentDescription(Description)
 	Storage.set_assignmentTitle(Title)
+	Storage.set_assignmentID(AssignmentID)
+	Storage.set_assignmentCriteria(Criteria)
+	Storage.set_assignmentCriteriaType(CriteriaType)
+	
 	get_tree().change_scene("res://Scenes/AssignmentsStudent.tscn")
 
 func _on_MenuBtn_pressed():
+	Storage.set_assignmentDescription(null)
+	Storage.set_assignmentTitle(null)
+	Storage.set_assignmentID(null)
+	Storage.set_assignmentCriteria(null)
+	Storage.set_assignmentCriteriaType(null)
 	get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
 

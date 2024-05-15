@@ -31,6 +31,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 
 	if response_code == 201:
 		print("Classroom join successful:", response)
+		Storage.set_alertMsg("You have successfully joined the classroom")
 		get_tree().change_scene("res://Scenes/Classrooms/ClassroomStudent.tscn")
 	else:
 		print("Failed to join classroom:", response)

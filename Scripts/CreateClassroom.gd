@@ -30,6 +30,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 
 	if response_code == 201:
 		print("Classroom creation successful:", response)
+		Storage.set_alertMsg("Classroom successfully created!")
 		get_tree().change_scene("res://Scenes/Classrooms/ClassroomTeacher.tscn")
 	else:
 		print("Failed to create classroom:", response)

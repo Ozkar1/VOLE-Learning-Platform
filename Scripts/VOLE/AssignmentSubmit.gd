@@ -4,7 +4,8 @@ onready var http_request = $HTTPRequest
 onready var inArea = get_node("/root/Control/InArea")
 onready var mem = get_node("/root/Control/MemoryGridContainer")
 onready var regs = get_node("/root/Control/CPUPanel")
-onready var optionButton = get_node("/root/Control/HTTPRequest/OptionButton")
+
+var assignmentId
 
 # Helper function to convert memory labels to string
 func _memory_to_string():
@@ -25,14 +26,16 @@ func _registers_to_string():
 
 # Called when the node enters the scene tree for the first time
 func _ready():
-	pass
+	assignmentId = Storage.get_assignmentID()
+	if assignmentId != null:
+		visible = true
 
 # Function to handle the submit button pressed signal
 func _on_SubmitButton_pressed():
 	var input = inArea.text
 	var memory = _memory_to_string()
 	var register = _registers_to_string()
-	var assignment_id = optionButton.get_selected_id()
+	var assignment_id = assignmentId
 	var token = Storage.load_token()
 	var headers = [
 		"Content-Type: application/json",
@@ -53,5 +56,9 @@ func _on_SubmitButton_pressed():
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	if response_code == 200:
 		print("Assignment submitted successfully!")
+		Storage.set_alertMsg("Assignment submitted successfully!")
+		Storage.clearAssignmentValues()
+		get_tree().change_scene("res://Scenes/MainMenu.tscn")
 	else:
 		print("Failed to submit assignment: ", response_code)
+		Storage.alert("Assignment Incomplete")

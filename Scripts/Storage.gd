@@ -10,6 +10,11 @@ var _classroomId = null
 var _classroomName = null
 var _assignmentDescription = null
 var _assignmentTitle = null
+var _assignmentID = null
+var _assignmentCriteria = null
+var _assignmentCriteriaType = null
+var scene_tree = null
+var _alertMsg = null
 
 ## === JWT TOKEN === ##
 
@@ -58,6 +63,13 @@ func get_classroomName():
 
 ## === ASSIGNMENTS === ##
 
+func clearAssignmentValues():
+	_assignmentDescription = null
+	_assignmentTitle = null
+	_assignmentID = null
+	_assignmentCriteria = null
+	_assignmentCriteriaType = null
+
 func set_assignmentDescription(Description):
 	_assignmentDescription = Description
 
@@ -69,3 +81,40 @@ func set_assignmentTitle(Title):
 
 func get_assignmentTitle():
 	return _assignmentTitle
+
+func set_assignmentID(AssignmentID):
+	_assignmentID = AssignmentID
+
+func get_assignmentID():
+	return _assignmentID
+
+func set_assignmentCriteria(Criteria):
+	_assignmentCriteria = Criteria
+
+func get_assignmentCriteria():
+	return _assignmentCriteria
+	
+func set_assignmentCriteriaType(CriteriaType):
+	_assignmentCriteriaType = CriteriaType
+
+func get_assignmentCriteriaType():
+	return _assignmentCriteriaType
+
+## === ALERTS === ##
+func alert(text: String, title: String='') -> void:
+	var dialog = AcceptDialog.new()
+	dialog.dialog_text = text
+	dialog.window_title = title
+	dialog.connect('modal_closed', dialog, 'queue_free')
+	scene_tree = Engine.get_main_loop()
+	scene_tree.current_scene.add_child(dialog)
+	dialog.popup_centered()
+
+func clearMsgValue():
+	_alertMsg = null
+
+func set_alertMsg(msg):
+	_alertMsg = msg
+
+func get_alertMsg():
+	return _alertMsg

@@ -8,17 +8,22 @@ onready var JoinCodeVBox = $ColorRect/ColorRect/JoinCodeVBox
 onready var ViewMoreVBOX = $ColorRect/ColorRect/ViewMoreVBox
 
 onready var classroomName
+var alertMsg
 
 const url = "http://localhost:3000/api/classrooms/teacher" 
 
 func _ready():
+	alertMsg = Storage.get_alertMsg()
+	if alertMsg != null: 
+		Storage.alert(alertMsg)
+		Storage.clearMsgValue()
 	fetch_teacher_classroom_info()
 
 func fetch_teacher_classroom_info():
 	var token = Storage.load_token()  
 	var headers = [
 		"Content-Type: application/json",
-		"Authorization: Bearer " + token
+		"Authorization: Bearer " + token 
 		]
 	http_request.request(url, headers, true, HTTPClient.METHOD_GET, "")
 

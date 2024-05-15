@@ -9,12 +9,17 @@ onready var classromNameLabel = $ColorRect/ClassroomNameLabel
 var classroomId
 var classroomName
 var url
+var alertMsg
 
 func _ready():
 	classroomId = Storage.get_classroomId()
 	classroomName = Storage.get_classroomName()
 	classromNameLabel.text = classroomName + " - Assignments"
 	url = "http://localhost:3000/api/assignments/" + str(classroomId)
+	alertMsg = Storage.get_alertMsg()
+	if alertMsg != null:
+		Storage.alert(alertMsg)
+		Storage.clearMsgValue()
 	fetch_teacher_classroom_info()
 
 
@@ -25,6 +30,15 @@ func fetch_teacher_classroom_info():
 		"Authorization: Bearer " + token
 		]
 	http_request.request(url, headers, true, HTTPClient.METHOD_GET, "")
+
+func get_completion_status_info():
+	var token = Storage.load_token()
+	var headers = [
+		"Content-Type: application/json",
+		"Authorization: Bearer " + token
+	]
+	var completion_url = "http://localhost:3000/api/assignments/11/completions"
+	http_request.request(completion_url, headers, true, HTTPClient.METHOD_GET, "")
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	if response_code == 200:
@@ -49,7 +63,12 @@ func _on_BackToClassroomBtn_pressed():
 
 func _on_DeleteAssignmentBtn_pressed():
 	get_tree().change_scene("res://Scenes/DeleteAssignment.tscn")
+	Storage.alert('You have left the classroom')
 
 
 func _on_CreateAssignmentBtn_pressed():
 	get_tree().change_scene("res://Scenes/CreateAssignment.tscn")
+
+
+func _on_Button_pressed():
+	get_completion_status_info()
