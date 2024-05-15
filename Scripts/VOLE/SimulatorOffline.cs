@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Simulator : Control
+public class SimulatorOffline : Control
 {
 	TextEdit inArea;
 	Label[,] mem = new Label[17, 17];
@@ -36,6 +36,18 @@ public class Simulator : Control
 		GridContainer memoryGridContainer = GetNode<GridContainer>("MemoryGridContainer");
 		//TODO
 		
+		/*for (int i = 0; i < 17; i++)
+		{
+			for (int j = 0; j < 16; j++)
+			{
+				Label label = new Label();
+				label.Text = "00"; // Default text for memory label
+				mem[i, j] = label;
+				memoryGridContainer.AddChild(label);
+				//GD.Print("Label added at position: ", i, ",", j);
+			}
+		}*/
+
 		//Forsøg 2
 		for (int i = 0; i < 17; i++)
 		{
@@ -145,6 +157,21 @@ for (int i = 0; i < 16; i++)
 			mem[i, j].Text = "00";
 		}
 	}
+	/*for (int i = 0; i < 17; i++)
+	{ 
+		//mem[i,0].Text =(i-1).ToString();
+		mem[i,0].Text = "skrrt";
+		
+		for (int j = 1; j < 17; j++)
+		{
+			if(i == 0){
+				mem[i, j].Text = " ";
+			} else if(j > 0) {
+				mem[i, j].Text = "00";
+				}
+			
+		}
+	}*/
 }
 private void LoadData()
 {
@@ -206,7 +233,7 @@ private void LoadData()
 				if (int.TryParse(input.Substring(ptr, 2), System.Globalization.NumberStyles.HexNumber, null, out int val))
 				{
 					if (chgPC) spRegs[0, 1].Text = val.ToString("X2");
-					if (chgReg) regs[rNum-1, 1].Text = val.ToString("X2");
+					if (chgReg) regs[rNum, 1].Text = val.ToString("X2");
 					if (chgMem)
 					{
 						mem[address / 16 + 1, address % 16 + 1].Text = val.ToString("X2");
