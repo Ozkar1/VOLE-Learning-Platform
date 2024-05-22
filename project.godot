@@ -20,6 +20,16 @@ _global_script_classes=[ {
 "path": "res://addons/godot-git-plugin/git_api.gdns"
 }, {
 "base": "Reference",
+"class": "GutHookScript",
+"language": "GDScript",
+"path": "res://addons/gut/hook_script.gd"
+}, {
+"base": "Node",
+"class": "GutTest",
+"language": "GDScript",
+"path": "res://addons/gut/test.gd"
+}, {
+"base": "Reference",
 "class": "JWT",
 "language": "GDScript",
 "path": "res://addons/jwt/src/JWT.gd"
@@ -72,6 +82,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "DateTime": "",
 "GitAPI": "",
+"GutHookScript": "",
+"GutTest": "",
 "JWT": "",
 "JWTAlgorithm": "",
 "JWTAlgorithmBuilder": "",
@@ -97,7 +109,7 @@ UserManager="*res://Scripts/UserManager.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/jwt/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/gut/plugin.cfg", "res://addons/jwt/plugin.cfg" )
 
 [gui]
 
