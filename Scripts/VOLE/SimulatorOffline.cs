@@ -34,21 +34,7 @@ public class SimulatorOffline : Control
 		
 		// Create memory labels and add them to the MemoryGridContainer
 		GridContainer memoryGridContainer = GetNode<GridContainer>("MemoryGridContainer");
-		//TODO
-		
-		/*for (int i = 0; i < 17; i++)
-		{
-			for (int j = 0; j < 16; j++)
-			{
-				Label label = new Label();
-				label.Text = "00"; // Default text for memory label
-				mem[i, j] = label;
-				memoryGridContainer.AddChild(label);
-				//GD.Print("Label added at position: ", i, ",", j);
-			}
-		}*/
-
-		//Forsøg 2
+  
 		for (int i = 0; i < 17; i++)
 		{
 			mem[i, 0] = new Label();
@@ -68,7 +54,7 @@ public class SimulatorOffline : Control
 					mem[i, j].Text = "00";
 				}
 				
-				mem[i, j].Align = Label.AlignEnum.Center; // Assuming you want all text centered
+				mem[i, j].Align = Label.AlignEnum.Center;
 				memoryGridContainer.AddChild(mem[i, j]); // Add the label to the scene tree
 			}
 		}
@@ -147,7 +133,7 @@ for (int i = 0; i < 16; i++)
 		return hex.PadLeft(width, '0'); // Pad with '0' to ensure minimum width
 	}
 	
-	// Her stopper UI implementation
+	// End of the UI implemention
 	private void ClearMemory()
 {
 	for (int i = 1; i < 17; i++)
@@ -157,21 +143,6 @@ for (int i = 0; i < 16; i++)
 			mem[i, j].Text = "00";
 		}
 	}
-	/*for (int i = 0; i < 17; i++)
-	{ 
-		//mem[i,0].Text =(i-1).ToString();
-		mem[i,0].Text = "skrrt";
-		
-		for (int j = 1; j < 17; j++)
-		{
-			if(i == 0){
-				mem[i, j].Text = " ";
-			} else if(j > 0) {
-				mem[i, j].Text = "00";
-				}
-			
-		}
-	}*/
 }
 private void LoadData()
 {
@@ -257,7 +228,6 @@ private void RunProgram()
 	while (running)
 	{
 		ExecuteSingleStep();
-		// Optionally, add a small delay here
 	}
 }
 
@@ -314,7 +284,6 @@ private void ExecuteSingleStep()
 				regs[destReg, 1].Text = regs[srcReg, 1].Text;
 				break;
 			}
-		// Additional cases for other opcodes...
 		case 0xC: // Halt
 			running = false;
 			break;
