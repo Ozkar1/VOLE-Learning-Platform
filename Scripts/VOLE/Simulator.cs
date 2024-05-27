@@ -54,7 +54,7 @@ public class Simulator : Control
 					mem[i, j].Text = "00";
 				}
 				
-				mem[i, j].Align = Label.AlignEnum.Center; // Assuming you want all text centered
+				mem[i, j].Align = Label.AlignEnum.Center; 
 				memoryGridContainer.AddChild(mem[i, j]); // Add the label to the scene tree
 			}
 		}
@@ -133,7 +133,7 @@ for (int i = 0; i < 16; i++)
 		return hex.PadLeft(width, '0'); // Pad with '0' to ensure minimum width
 	}
 	
-	// Her stopper UI implementation
+	//End of UI implementation
 	private void ClearMemory()
 {
 	for (int i = 1; i < 17; i++)
@@ -228,7 +228,6 @@ private void RunProgram()
 	while (running)
 	{
 		ExecuteSingleStep();
-		// Optionally, add a small delay here
 	}
 }
 
@@ -285,7 +284,6 @@ private void ExecuteSingleStep()
 				regs[destReg, 1].Text = regs[srcReg, 1].Text;
 				break;
 			}
-		// Additional cases for other opcodes...
 		case 0xC: // Halt
 			running = false;
 			break;
