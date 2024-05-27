@@ -34,9 +34,7 @@ public class Simulator : Control
 		
 		// Create memory labels and add them to the MemoryGridContainer
 		GridContainer memoryGridContainer = GetNode<GridContainer>("MemoryGridContainer");
-		//TODO
-		
-		//Forsøg 2
+
 		for (int i = 0; i < 17; i++)
 		{
 			mem[i, 0] = new Label();
