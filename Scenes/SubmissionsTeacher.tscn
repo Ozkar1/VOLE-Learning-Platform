@@ -1,27 +1,29 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Themes/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=2]
-[ext_resource path="res://Scripts/AssignmentsTeacher.gd" type="Script" id=3]
+[ext_resource path="res://Themes/vole_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Themes/fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/SubmissionsTeacher.gd" type="Script" id=3]
+[ext_resource path="res://Themes/fonts/OpenSans-Semibold.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 22
+font_data = ExtResource( 4 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
+theme = ExtResource( 1 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_vertical_guides_": [ 514.0 ]
-}
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
@@ -30,21 +32,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 0.8, 1 )
 
-[node name="ClassroomNameLabel" type="Label" parent="ColorRect"]
+[node name="AssigmentNameLabel" type="Label" parent="ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -512.0
+margin_left = -411.0
 margin_top = -286.0
-margin_right = 512.0
+margin_right = 416.0
 margin_bottom = -225.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Classroom Name - Assignments"
+text = "Assignment Name - Submissions"
 align = 1
 valign = 2
 
@@ -59,18 +61,6 @@ margin_right = -201.76
 margin_bottom = -61.0
 text = "Back To Classrooms"
 
-[node name="CreateAssignmentBtn" type="Button" parent="ColorRect"]
-anchor_left = 0.49
-anchor_top = 0.5
-anchor_right = 0.49
-anchor_bottom = 0.5
-margin_left = -451.76
-margin_top = -21.0
-margin_right = -201.76
-margin_bottom = 29.0
-rect_pivot_offset = Vector2( 280, 40 )
-text = "Add new assignment"
-
 [node name="ColorRect" type="ColorRect" parent="ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -82,35 +72,24 @@ margin_right = 460.0
 margin_bottom = 249.0
 color = Color( 0.827451, 0.827451, 0.827451, 1 )
 
-[node name="AssignmentNameVBox" type="VBoxContainer" parent="ColorRect/ColorRect"]
+[node name="SubmittersVBox" type="VBoxContainer" parent="ColorRect/ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -281.5
 margin_top = -148.0
-margin_right = -1.5
+margin_right = 281.5
 margin_bottom = 180.0
 rect_pivot_offset = Vector2( -702, 13 )
 custom_constants/separation = 15
-
-[node name="SubmissionsVBox" type="VBoxContainer" parent="ColorRect/ColorRect"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 185.5
-margin_top = -148.0
-margin_right = 283.5
-margin_bottom = 180.0
-custom_constants/separation = 10
 
 [node name="ClassroomNameTitle" type="Label" parent="ColorRect/ColorRect"]
 margin_left = 6.0
 margin_right = 214.0
 margin_bottom = 30.0
 custom_fonts/font = SubResource( 2 )
-text = "Assignment Name"
+text = "Full name"
 valign = 1
 
 [node name="ViewMoreTitle" type="Label" parent="ColorRect/ColorRect"]
@@ -119,7 +98,6 @@ margin_top = 1.0
 margin_right = 570.0
 margin_bottom = 31.0
 custom_fonts/font = SubResource( 3 )
-text = "Submissions"
 valign = 1
 
 [node name="ColorRect2" type="ColorRect" parent="ColorRect/ColorRect"]
@@ -140,40 +118,35 @@ margin_right = 290.0
 margin_bottom = -139.0
 rect_pivot_offset = Vector2( -364, 280 )
 
-[node name="DeleteAssignmentBtn" type="Button" parent="ColorRect"]
-anchor_left = 0.49
-anchor_top = 0.5
-anchor_right = 0.49
-anchor_bottom = 0.5
-margin_left = -451.76
-margin_top = 69.0
-margin_right = -201.76
-margin_bottom = 119.0
-rect_pivot_offset = Vector2( 280, 40 )
-text = "Delete Assignment"
+[node name="AssignmentTitleLabel" type="Label" parent="ColorRect"]
+margin_left = 33.0
+margin_top = 270.0
+margin_right = 345.0
+margin_bottom = 307.0
+rect_pivot_offset = Vector2( 267, 37 )
+custom_fonts/font = SubResource( 4 )
+text = "Assignment Desc"
+align = 1
+autowrap = true
 
-[node name="AddAssignmentBtn" type="Button" parent="ColorRect"]
-visible = false
-anchor_left = 0.49
-anchor_top = 0.5
-anchor_right = 0.49
-anchor_bottom = 0.5
-margin_left = -451.76
-margin_top = 159.0
-margin_right = -201.76
-margin_bottom = 209.0
-rect_pivot_offset = Vector2( 280, 40 )
+[node name="AssignmentDescLabel" type="Label" parent="ColorRect"]
+margin_left = 33.0
+margin_top = 318.0
+margin_right = 345.0
+margin_bottom = 556.0
+text = "**Desc text goes here**"
+autowrap = true
 
-[node name="Button" type="Button" parent="ColorRect"]
-visible = false
-margin_left = 43.0
-margin_top = 439.0
-margin_right = 318.0
-margin_bottom = 542.0
-text = "DINGO BINGO"
+[node name="AssignmentCriteriaLabel" type="Label" parent="ColorRect"]
+margin_left = 101.0
+margin_top = 87.0
+margin_right = 928.0
+margin_bottom = 178.0
+rect_pivot_offset = Vector2( 267, 37 )
+custom_fonts/font = SubResource( 4 )
+text = "Assignment Criteria"
+align = 1
+autowrap = true
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="ColorRect/BackToClassroomBtn" to="." method="_on_BackToClassroomBtn_pressed"]
-[connection signal="pressed" from="ColorRect/CreateAssignmentBtn" to="." method="_on_CreateAssignmentBtn_pressed"]
-[connection signal="pressed" from="ColorRect/DeleteAssignmentBtn" to="." method="_on_DeleteAssignmentBtn_pressed"]
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]

@@ -14,7 +14,7 @@
 size = 24
 font_data = ExtResource( 6 )
 
-[node name="Control" type="Control"]
+[node name="Control2" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
