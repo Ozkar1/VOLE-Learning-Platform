@@ -1,9 +1,9 @@
 extends Button
 
 onready var http_request = $HTTPRequest
-onready var inArea = get_node("/root/Control/InArea")
-onready var mem = get_node("/root/Control/MemoryGridContainer")
-onready var regs = get_node("/root/Control/CPUPanel")
+onready var inArea = get_node("/root/Control2/InArea")
+onready var mem = get_node("/root/Control2/MemoryGridContainer")
+onready var regs = get_node("/root/Control2/CPUPanel")
 
 var assignmentId
 

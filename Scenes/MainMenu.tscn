@@ -77,8 +77,7 @@ margin_right = 438.0
 margin_bottom = 100.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
-text = "[Here goes text about the assignments for the signed in user]
-[What to display if not part of a classroom/no assignements or no internet connection]"
+text = " [Placeholder text]"
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="ColorRect/ClassroomBtn" to="." method="_on_ClassroomBtn_pressed"]
